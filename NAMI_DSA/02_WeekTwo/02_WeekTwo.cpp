@@ -5,6 +5,142 @@
 //  Created by Chandra Jayaswal on 14/07/2026.
 //
 
+#include <iostream>
+using namespace std;
+
+void info(){
+    cout << "C++ Programming!" << endl;
+}
+
+double add(double a, double b) {
+    double sum = a + b;
+    cout << a << " + " << b << " = " << sum << endl;
+    return sum;
+}
+
+void subtract(double a, double b) {
+    int max = (a > b)? a : b;
+    int min = (a < b)? a : b;
+    double difference = max - min;
+    cout << max << " - " << min << " = " << difference << endl;
+}
+
+void multiply(double a, double b) {
+    double multiply = a * b;
+    cout << a << " * " << b << " = " << multiply << endl;
+}
+
+void divide(double a, double b) {
+    if (b != 0) {
+        double divide = a / b;
+        cout << a << " / " << b << " = " << divide << endl;
+    } else {
+        cout << a <<" / " << b <<" = Error: Division by zero!" << endl;
+    }
+}
+
+int main() {
+    double a, b;
+    info();
+    cout << "Enter two numbers: ";
+    cin >> a;
+    cin >> b;
+    double sum = add(a,b);
+    cout << "Sum: " << sum << endl;
+    subtract(a, b);
+    multiply(a, b);
+    divide(a, b);
+    return 0;
+}
+
+
+
+
+//#include <iostream>
+//using namespace std;
+//
+//int main() {
+//    for (int i = 0; i < 10; i++) {
+////        if (i == 5) continue;
+////        if (i == 5) break;
+//        if (i == 5) return 0;
+//        cout << i << " ";  // 0 1 2 3 4
+//    }
+//    cout << endl;
+//    return 0;
+//}
+
+//int main() {
+//    int array[] = {1,2,3,4,5};
+//    for (int value : array){
+//        cout << value << "  ";
+//    }
+//    cout << endl;
+//    
+//    for (auto& num : array) {
+//        num = num * 2;  // Modify in place
+//    }
+//    cout << endl;
+//    for (int value : array){
+//        cout << value << "  ";
+//    }
+//    cout << endl;
+//    return 0;
+//}
+
+
+//int main() {
+//    int n;
+//
+//    cout <<"N:";
+//    cin >> n;
+//    
+//    for (int line = 1; line <= n; line = line + 1) {
+//        for (int spaceCount = 1; spaceCount <= (n - line); spaceCount ++) {
+//            cout <<" ";
+//
+//        }
+//        int numberCharacter = 1 + (line - 1) * 2;
+//        for (int charCount = 1; charCount <= numberCharacter; charCount++) {
+//            cout <<"*";
+////            cout << (line * charCount) << "  ";
+//        }
+//        cout << endl;
+//    }
+//    return 0;
+//}
+
+
+//#include <iostream>
+//using namespace std;
+//
+//int main(){
+//    int from, to, evenSum = 0, oddSum = 0;
+//    cout <<"From:";
+//    cin >> from;
+//    cout <<"To:";
+//    cin >> to;
+//    
+//    if (from > to) {
+//        int temp = from;
+//        from = to;
+//        to = temp;
+//    }
+//    
+//    for (int value = from; value <= to; value++) {
+//        if (value % 2 == 0){ //even
+//            evenSum = evenSum + value;
+//            cout <<"Value: "<< value<< " Even Sum: "<< evenSum << endl;
+//        } else { //odd
+//            oddSum = oddSum + value;
+//            cout <<"Value: "<< value<< " Odd Sum: "<< oddSum << endl;
+//        }
+//    }
+//    cout << "EvenSum: " << evenSum << "  OddSum: " << oddSum <<endl; 
+//    return 0;
+//}
+
+
 //#include "iostream"
 //using namespace std;
 //

@@ -23,7 +23,6 @@
         Too high! Try again: 62
         Correct! You took 3 attempts!
         
-        
     Question 3: Sum of Numbers
         Write a program that asks the user for a positive integer n and calculates the sum of all numbers from 1 to n using a for loop.
 
