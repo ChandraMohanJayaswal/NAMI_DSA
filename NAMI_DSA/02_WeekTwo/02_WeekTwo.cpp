@@ -8,52 +8,68 @@
 #include <iostream>
 using namespace std;
 
-void info(){
-    cout << "C++ Programming!" << endl;
-}
+//int main() {
+//    int arr[] = {1, 2, 3, 4, 5};
+//    int sum = 0;
+//    
+////    for (int i = 0; i < size(arr); i++) {
+////        sum = sum + arr[i];
+////    }
+//    
+//    for (int data : arr) {
+//        sum = sum + data;
+//    }
+//    cout <<"Sum = " << sum << endl;
+//    return 0;
+//}
 
-double add(double a, double b) {
-    double sum = a + b;
-    cout << a << " + " << b << " = " << sum << endl;
-    return sum;
-}
-
-void subtract(double a, double b) {
-    int max = (a > b)? a : b;
-    int min = (a < b)? a : b;
-    double difference = max - min;
-    cout << max << " - " << min << " = " << difference << endl;
-}
-
-void multiply(double a, double b) {
-    double multiply = a * b;
-    cout << a << " * " << b << " = " << multiply << endl;
-}
-
-void divide(double a, double b) {
-    if (b != 0) {
-        double divide = a / b;
-        cout << a << " / " << b << " = " << divide << endl;
-    } else {
-        cout << a <<" / " << b <<" = Error: Division by zero!" << endl;
-    }
-}
-
-int main() {
-    double a, b;
-    info();
-    cout << "Enter two numbers: ";
-    cin >> a;
-    cin >> b;
-    double sum = add(a,b);
-    cout << "Sum: " << sum << endl;
-    subtract(a, b);
-    multiply(a, b);
-    divide(a, b);
-    return 0;
-}
-
-
+//#include <iostream>
+//using namespace std;
+//
+//void info(){
+//    cout << "C++ Programming!" << endl;
+//}
+//
+//double add(double a, double b) {
+//    double sum = a + b;
+//    cout << a << " + " << b << " = " << sum << endl;
+//    return sum;
+//}
+//
+//void subtract(double a, double b) {
+//    int max = (a > b)? a : b;
+//    int min = (a < b)? a : b;
+//    double difference = max - min;
+//    cout << max << " - " << min << " = " << difference << endl;
+//}
+//
+//void multiply(double a, double b) {
+//    double multiply = a * b;
+//    cout << a << " * " << b << " = " << multiply << endl;
+//}
+//
+//void divide(double a, double b) {
+//    if (b != 0) {
+//        double divide = a / b;
+//        cout << a << " / " << b << " = " << divide << endl;
+//    } else {
+//        cout << a <<" / " << b <<" = Error: Division by zero!" << endl;
+//    }
+//}
+//
+//int main() {
+//    double a, b;
+//    info();
+//    cout << "Enter two numbers: ";
+//    cin >> a;
+//    cin >> b;
+//    double sum = add(a,b);
+//    cout << "Sum: " << sum << endl;
+//    subtract(a, b);
+//    multiply(a, b);
+//    divide(a, b);
+//    return 0;
+//}
 
 
 //#include <iostream>
