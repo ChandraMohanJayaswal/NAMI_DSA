@@ -1,7 +1,8 @@
-# Arrays
+# Arrays, Searching and Sorting Algorithms, Vectors
 
-# Searching and Sorting Algorithms, Vectors
-
+## Arrays in C++
+    Reference: https://www.geeksforgeeks.org/cpp/cpp-arrays/
+    
 ## Sorting
     Bubble Sort
     Insertion Sort
