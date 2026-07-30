@@ -8,6 +8,20 @@
 #include <iostream>
 using namespace std;
 
+int main() {
+    cout <<"A \"quoted\" String is much better"<<endl;
+    cout <<"if you learn the rules of escape sequences.\""<<endl;
+    cout <<endl;
+    cout <<"Also, \"\" represents an empty string" <<endl;
+    cout <<endl;
+    cout <<"Don\’t forget to use \\\" to print \"\" on your console" <<endl;
+    cout <<"Note that there are 2 blank lines in this output." <<endl;
+    cout <<endl;
+    cout <<"\u00A3"<<endl;
+    cout <<"£"<<endl;
+    return 0;
+}
+
 //int main() {
 //    int arr[] = {1, 2, 3, 4, 5};
 //    int sum = 0;
