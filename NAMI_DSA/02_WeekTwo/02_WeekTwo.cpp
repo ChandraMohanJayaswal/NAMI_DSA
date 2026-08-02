@@ -8,19 +8,29 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-    cout <<"A \"quoted\" String is much better"<<endl;
-    cout <<"if you learn the rules of escape sequences.\""<<endl;
-    cout <<endl;
-    cout <<"Also, \"\" represents an empty string" <<endl;
-    cout <<endl;
-    cout <<"Don\’t forget to use \\\" to print \"\" on your console" <<endl;
-    cout <<"Note that there are 2 blank lines in this output." <<endl;
-    cout <<endl;
-    cout <<"\u00A3"<<endl;
-    cout <<"£"<<endl;
-    return 0;
-}
+//int main() {
+//    int a[] = {0,0,0,0,0,0,0,0,0,0};
+//    double sumAbove50 = 0, countAbove50 = 0;
+//    double sumBellow50 = 0, countBellow50 = 0;
+//    
+//    for (int i = 0; i<10; i ++) {
+//        cin >> a[i];
+//    }
+//    
+//    for (int value : a) {
+//        if (value >= 50) {
+//            sumAbove50 = sumAbove50 + value;
+//            countAbove50++;
+//        } else {
+//            sumBellow50 = sumBellow50 + value;
+//            countBellow50++;
+//        }
+//    }
+//    
+//    cout << "Average for <= 50: " << (sumAbove50 / countAbove50) << endl;
+//    cout << "Average for < 50: " << (sumBellow50 / countBellow50) << endl;
+//    return 0;
+//}
 
 //int main() {
 //    int arr[] = {1, 2, 3, 4, 5};
