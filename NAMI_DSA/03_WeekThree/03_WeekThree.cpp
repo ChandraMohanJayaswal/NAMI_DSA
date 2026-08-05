@@ -76,10 +76,10 @@ int alternating_sum(vector<int> vectorData){
     return  result;
 }
 
-int main() {
-    vector<int> data = {1,4,9,16,9,7,4,9,11};
-    int result = alternating_sum(data);
-    cout << "Result: " << result << endl;
+//int main() {
+//    vector<int> data = {1,4,9,16,9,7,4,9,11};
+//    int result = alternating_sum(data);
+//    cout << "Result: " << result << endl;
 //    vectorDemo();
 //    int arrayOne[] = {3,4,1,9,4,7,2};
 //    int length = sizeof(arrayOne) / sizeof(arrayOne[0]);
@@ -89,5 +89,5 @@ int main() {
 //    
 //    int result1 = sumArray(arrayOne, length);
 //    cout << "Result1: " << result1 << endl;
-    return 0;
-}
+//    return 0;
+//}
