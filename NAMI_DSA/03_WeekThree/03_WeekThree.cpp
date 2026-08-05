@@ -6,10 +6,26 @@
 //
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 void vectorDemo() {
-    
+//    vector<int> vectorData = {1,2,3};
+    vector<int> vectorData(3, 5); // {5,5,5}
+//    vectorData.insert(vectorData.begin(), 100);
+//    vectorData.push_back(200);
+//    vectorData.erase(vectorData.begin());
+    vectorData.pop_back(); //Delete last data
+//    vectorData.erase(vectorData.begin(), vectorData.end());
+    if (vectorData.empty()) {
+        cout << "No data" << endl;
+    }
+    for (int data : vectorData){
+        cout << data << " ";
+    }
+    cout << endl;
+    cout << "Size: " << vectorData.size() << endl;
+    return;
 }
 
 void bubbleSort(int inputData[], int length) {
@@ -48,10 +64,26 @@ int sum(int *array, int sizeOfArray) {
     return sum;
 }
 
+int alternating_sum(vector<int> vectorData){
+    int result = 0;
+    for (int index = 0; index < vectorData.size(); index++) {
+        if (index % 2 == 0) { //Even -- Add
+            result = result + vectorData.at(index);
+        } else { //Odd -- Sub
+            result = result - vectorData.at(index);
+        }
+    }
+    return  result;
+}
+
 int main() {
-    int arrayOne[] = {3,4,1,9,4,7,2};
-    int length = sizeof(arrayOne) / sizeof(arrayOne[0]);
-    bubbleSort(arrayOne, length);
+    vector<int> data = {1,4,9,16,9,7,4,9,11};
+    int result = alternating_sum(data);
+    cout << "Result: " << result << endl;
+//    vectorDemo();
+//    int arrayOne[] = {3,4,1,9,4,7,2};
+//    int length = sizeof(arrayOne) / sizeof(arrayOne[0]);
+//    bubbleSort(arrayOne, length);
 //    int result = sum(arrayOne, length);
 //    cout << "Result: " << result << endl;
 //    
