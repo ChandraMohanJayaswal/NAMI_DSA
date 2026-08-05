@@ -1,14 +1,15 @@
 # Structures
-
+    Reference: https://www.geeksforgeeks.org/cpp/structures-in-cpp/
+    
 # Recursion
+    Reference: https://www.geeksforgeeks.org/cpp/cpp-recursion/
     
     Question 11: Recursive Functions
         Write recursive versions of:
-    
-        Factorial
-        Fibonacci
-        Power function
-        Sum of digits
+        1) Factorial
+        2) Fibonacci
+        3) Power function
+        4) Sum of digits
         
         Sample Output:
         Factorial of 5: 120
