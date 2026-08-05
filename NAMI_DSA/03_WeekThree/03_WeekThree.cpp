@@ -5,10 +5,12 @@
 //  Created by Chandra Jayaswal on 02/08/2026.
 //
 
-#include "03_WeekThree.hpp"
-
 #include <iostream>
 using namespace std;
+
+void vectorDemo() {
+    
+}
 
 void bubbleSort(int inputData[], int length) {
     for (int pivot = 0; pivot < (length - 1); pivot++){
