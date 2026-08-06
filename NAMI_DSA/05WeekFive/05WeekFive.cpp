@@ -46,9 +46,9 @@ int factorial(int n) {
 }
 
 int fibonacci(int n) {
-//    if (n == 0) return 0;
-//    if (n == 1) return 1;
-    if (n <= 1) return n;
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+//    if (n <= 1) return n;
     return fibonacci(n-1) + fibonacci(n-2);
 }
 
@@ -68,8 +68,9 @@ int sumOfDigits(int number) {
 }
 
 int main() {
-    int sum = sumOfDigits(123);
-    cout <<"Sum of Digits: " << sum << endl;
+//    helloWold(1);
+//    int sum = sumOfDigits(123);
+//    cout <<"Sum of Digits: " << sum << endl;
 //    int powerResult = power(2, 5);
 //    cout << "Power Result: " << powerResult << endl;
 //    int fibResult = fibonacci(10);
@@ -78,7 +79,7 @@ int main() {
 //    cout << "Result: " << result << endl;
 //    helloWold(1);
 //    cout << "Factorial of 5: " << factorial(5) << endl;
-//    cout << "Fibonacci(10): " << fibonacci(10) << endl;
+    cout << "Fibonacci(10): " << fibonacci(10) << endl;
 //    cout << "2^8 = " << power(2, 8) << endl;
 //    cout << "Sum of digits of 12345: " << sumOfDigits(12345) << endl;
     return 0;

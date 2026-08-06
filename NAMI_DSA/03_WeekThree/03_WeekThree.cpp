@@ -10,19 +10,20 @@
 using namespace std;
 
 void vectorDemo() {
-//    vector<int> vectorData = {1,2,3};
-    vector<int> vectorData(3, 5); // {5,5,5}
+    vector<int> vectorData = {1,2,3,3,5,8,9,1};
+//    vector<int> vectorData(3, 5); // {5,5,5}
 //    vectorData.insert(vectorData.begin(), 100);
 //    vectorData.push_back(200);
 //    vectorData.erase(vectorData.begin());
-    vectorData.pop_back(); //Delete last data
-//    vectorData.erase(vectorData.begin(), vectorData.end());
+//    vectorData.pop_back(); //Delete last data
+    vectorData.erase(vectorData.begin(), vectorData.end());
     if (vectorData.empty()) {
         cout << "No data" << endl;
     }
     for (int data : vectorData){
         cout << data << " ";
     }
+    
     cout << endl;
     cout << "Size: " << vectorData.size() << endl;
     return;
@@ -76,8 +77,35 @@ int alternating_sum(vector<int> vectorData){
     return  result;
 }
 
+void removDuplicateFromVector(vector<int> data) {
+    vector<int> uniqueData = {};
+    for (int index = 0; index < data.size(); index++) {
+        int value = data.at(index);
+        bool isUniqueValue = true;
+        for (int newDataIndex = 0; newDataIndex < uniqueData.size(); newDataIndex++) {
+            int newValue = uniqueData.at(newDataIndex);
+            if (newValue == value) {
+                isUniqueValue = false;
+                break;
+            }
+        }
+        if (isUniqueValue) {
+            uniqueData.push_back(value);
+        }
+    }
+    
+    for (int data : uniqueData){
+        cout << data << " ";
+    }
+    
+    cout << endl;
+    
+    return;
+}
+
 //int main() {
 //    vector<int> data = {1,4,9,16,9,7,4,9,11};
+//    removDuplicateFromVector(data);
 //    int result = alternating_sum(data);
 //    cout << "Result: " << result << endl;
 //    vectorDemo();
