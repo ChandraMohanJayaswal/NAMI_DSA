@@ -29,7 +29,7 @@ void vectorDemo() {
     return;
 }
 
-void bubbleSort(int inputData[], int length) {
+void selectionSort(int inputData[], int length) {
     for (int pivot = 0; pivot < (length - 1); pivot++){
         for (int dataIndex = pivot + 1; dataIndex < length; dataIndex ++) {
             int pivotData = inputData[pivot];
@@ -111,7 +111,7 @@ void removDuplicateFromVector(vector<int> data) {
 //    vectorDemo();
 //    int arrayOne[] = {3,4,1,9,4,7,2};
 //    int length = sizeof(arrayOne) / sizeof(arrayOne[0]);
-//    bubbleSort(arrayOne, length);
+//    selectionSort(arrayOne, length);
 //    int result = sum(arrayOne, length);
 //    cout << "Result: " << result << endl;
 //    
