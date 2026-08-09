@@ -46,6 +46,78 @@ void selectionSort(int inputData[], int length) {
     }
 }
 
+void insertionSort(int inputData[], int length) { //Worst
+    if (length < 2) { return;}
+    for (int pivotIndex = 1; pivotIndex < length; pivotIndex++){
+        for (int dataIndex = 0; dataIndex < pivotIndex; dataIndex ++){
+            int pivotData = inputData[pivotIndex];
+            int data = inputData[dataIndex];
+            if (pivotData < data) {
+                //Shift Right data from dataIndex to pivotIndex
+                for (int i = pivotIndex; i >= dataIndex; i--){
+                    inputData[i] = inputData[i-1];
+                }
+                //Insert Pivot data index dataIndex
+                inputData[dataIndex] = pivotData;
+            }
+        }
+    }
+    
+    //Display Sorted Data
+    for (int i = 0; i < length; i ++) {
+        cout <<inputData[i] <<" ";
+    }
+}
+
+void insertionSortV2(int inputData[], int length) {
+    if (length < 2) { return;}
+    for (int pivotIndex = 1; pivotIndex < length; pivotIndex++){
+        int pivotData = inputData[pivotIndex];
+        int dataIndex = pivotIndex - 1;
+        while (dataIndex >= 0 && inputData[dataIndex] > pivotData) {
+            inputData[dataIndex + 1] = inputData[dataIndex];
+            dataIndex = dataIndex - 1;
+        }
+        inputData[dataIndex + 1] = pivotData;
+
+    }
+    
+    //Display Sorted Data
+    for (int i = 0; i < length; i ++) {
+        cout <<inputData[i] <<" ";
+    }
+}
+
+void bubbleSort(int inputData[], int length) {
+    int temp;
+//    bool swapped;
+    
+    // Outer loop for the number of passes
+    for (int i = 0; i < length - 1; i++) {
+//        swapped = false; // Reset the flag for each pass
+        // Inner loop to compare adjacent elements
+        for (int j = 0; j < length - i - 1; j++) {
+            // Swap if the element is greater than the next element
+            if (inputData[j] > inputData[j + 1]) {
+                temp = inputData[j];
+                inputData[j] = inputData[j + 1];
+                inputData[j + 1] = temp;
+//                swapped = true; // Mark that a swap occurred
+            }
+        }
+        
+//        // If no two elements were swapped in the inner loop, the array is sorted
+//        if (swapped == false) {
+//            break;
+//        }
+    }
+    
+    //Display Sorted Data
+    for (int i = 0; i < length; i ++) {
+        cout <<inputData[i] <<" ";
+    }
+}
+
 int sumArray(int arrayInput[], int length){
     int sum = 0;
     for (int i = 0; i < length; i++) {
@@ -103,19 +175,21 @@ void removDuplicateFromVector(vector<int> data) {
     return;
 }
 
-//int main() {
+int main() {
 //    vector<int> data = {1,4,9,16,9,7,4,9,11};
 //    removDuplicateFromVector(data);
 //    int result = alternating_sum(data);
 //    cout << "Result: " << result << endl;
 //    vectorDemo();
-//    int arrayOne[] = {3,4,1,9,4,7,2};
-//    int length = sizeof(arrayOne) / sizeof(arrayOne[0]);
+    int arrayOne[] = {3,4,1,9,4,7,2};
+    int length = sizeof(arrayOne) / sizeof(arrayOne[0]);
+    bubbleSort(arrayOne, length);
+//    insertionSortV2(arrayOne, length);
 //    selectionSort(arrayOne, length);
 //    int result = sum(arrayOne, length);
 //    cout << "Result: " << result << endl;
 //    
 //    int result1 = sumArray(arrayOne, length);
 //    cout << "Result1: " << result1 << endl;
-//    return 0;
-//}
+    return 0;
+}
