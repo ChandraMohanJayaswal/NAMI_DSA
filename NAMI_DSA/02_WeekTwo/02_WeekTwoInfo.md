@@ -1,6 +1,8 @@
 # Control Structures, Loops, Strings, Random Numbers
 
-    Reference: https://www.geeksforgeeks.org/cpp/cpp-loops/
+    Reference: 
+        1. https://www.geeksforgeeks.org/cpp/cpp-loops/
+        2. Codes at https://github.com/ChandraMohanJayaswal/NAMI_DSA/blob/main/NAMI_DSA/02_WeekTwo/02_WeekTwo.cpp
 
     ## Loops Questions
     

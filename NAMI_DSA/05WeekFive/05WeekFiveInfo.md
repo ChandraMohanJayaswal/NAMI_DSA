@@ -1,8 +1,11 @@
 # Structures
-    Reference: https://www.geeksforgeeks.org/cpp/structures-in-cpp/
+    Reference: 
+        1. https://www.geeksforgeeks.org/cpp/structures-in-cpp/
+        2. Codes at https://github.com/ChandraMohanJayaswal/NAMI_DSA/blob/main/NAMI_DSA/05WeekFive/05WeekFive.cpp
     
 # Recursion
-    Reference: https://www.geeksforgeeks.org/cpp/cpp-recursion/
+    Reference: 
+        3. https://www.geeksforgeeks.org/cpp/cpp-recursion/
     
     Question 11: Recursive Functions
         Write recursive versions of:

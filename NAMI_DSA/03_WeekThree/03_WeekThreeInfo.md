@@ -1,21 +1,32 @@
 # Arrays, Searching and Sorting Algorithms, Vectors
 
 ## Arrays in C++
-    Reference: https://www.geeksforgeeks.org/cpp/cpp-arrays/
+    Reference: 
+        1. https://www.geeksforgeeks.org/cpp/cpp-arrays/
+        2. Codes at: https://github.com/ChandraMohanJayaswal/NAMI_DSA/blob/main/NAMI_DSA/03_WeekThree/03_WeekThree.cpp
     
 ## Sorting
-    Bubble Sort: https://www.geeksforgeeks.org/dsa/bubble-sort-algorithm/
-    Insertion Sort: https://www.geeksforgeeks.org/dsa/insertion-sort-algorithm/
-    Selection Sort: https://www.geeksforgeeks.org/dsa/selection-sort-algorithm-2/
-    Merge Sort: https://www.geeksforgeeks.org/dsa/merge-sort/
-    Quick Sort: https://www.geeksforgeeks.org/dsa/quick-sort-algorithm/
-    Heap Sort: https://www.geeksforgeeks.org/dsa/heap-sort/
-    Reference: https://www.geeksforgeeks.org/dsa/sorting-algorithms/
+    Bubble Sort: 
+        3. https://www.geeksforgeeks.org/dsa/bubble-sort-algorithm/
+    Insertion Sort: 
+        4. https://www.geeksforgeeks.org/dsa/insertion-sort-algorithm/
+    Selection Sort: 
+        5. https://www.geeksforgeeks.org/dsa/selection-sort-algorithm-2/
+    Merge Sort: 
+        6. https://www.geeksforgeeks.org/dsa/merge-sort/
+    Quick Sort: 
+        7. https://www.geeksforgeeks.org/dsa/quick-sort-algorithm/
+    Heap Sort: 
+        8. https://www.geeksforgeeks.org/dsa/heap-sort/
+    Reference: 
+        9. https://www.geeksforgeeks.org/dsa/sorting-algorithms/
     
 ## Searching
     Linear Search
     Binary Search
-    Reference: https://www.geeksforgeeks.org/dsa/searching-algorithms/
+    Reference: 
+        10. https://www.geeksforgeeks.org/dsa/searching-algorithms/
     
 ## Vectors in C++ STL
-    Reference: https://www.geeksforgeeks.org/cpp/vector-in-cpp-stl/
+    Reference: 
+        11. https://www.geeksforgeeks.org/cpp/vector-in-cpp-stl/
