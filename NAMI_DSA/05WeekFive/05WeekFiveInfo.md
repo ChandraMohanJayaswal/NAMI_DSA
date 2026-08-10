@@ -6,7 +6,8 @@
 # Recursion
     Reference: 
         3. https://www.geeksforgeeks.org/cpp/cpp-recursion/
-    
+        4. Solve all the questions at https://github.com/ChandraMohanJayaswal/NAMI_DSA/blob/main/NAMI_DSA/Exercises/5.%20Week%205%20Lab%20Exercises.pdf
+        
     Question 11: Recursive Functions
         Write recursive versions of:
         1) Factorial

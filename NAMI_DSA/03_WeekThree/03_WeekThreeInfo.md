@@ -20,6 +20,7 @@
         8. https://www.geeksforgeeks.org/dsa/heap-sort/
     Reference: 
         9. https://www.geeksforgeeks.org/dsa/sorting-algorithms/
+        10. Solve all the questions at https://github.com/ChandraMohanJayaswal/NAMI_DSA/blob/main/NAMI_DSA/Exercises/3.%20C%2B%2B%20Lab%20Exercises%20Week%203.pdf
     
 ## Searching
     Linear Search

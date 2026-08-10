@@ -3,6 +3,8 @@
     Reference: 
         1. https://www.geeksforgeeks.org/cpp/cpp-loops/
         2. Codes at https://github.com/ChandraMohanJayaswal/NAMI_DSA/blob/main/NAMI_DSA/02_WeekTwo/02_WeekTwo.cpp
+        3. Solve all the questions at https://github.com/ChandraMohanJayaswal/NAMI_DSA/blob/main/NAMI_DSA/Exercises/1.%20C%2B%2B%20%20Lab%20Exercises%20Week%201.pdf
+        4. Solve all the questions at https://github.com/ChandraMohanJayaswal/NAMI_DSA/blob/main/NAMI_DSA/Exercises/2.%20C%2B%2B%20Lab%20Exercises%20Week%202.pdf
 
     ## Loops Questions
     
@@ -50,7 +52,8 @@
 
 # Functions
 
-    Reference: https://www.geeksforgeeks.org/cpp/cpp-function-practice-problems/
+    Reference: 
+        5. https://www.geeksforgeeks.org/cpp/cpp-function-practice-problems/
 
     ## Functions Questions
     Question 1: Basic Calculator Functions
