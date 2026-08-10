@@ -47,31 +47,32 @@ using namespace std;
 //    return 0;
 //}
 
-//#include <iostream>
-//using namespace std;
-//
+
 //void info(){
 //    cout << "C++ Programming!" << endl;
 //}
-//
+
 //double add(double a, double b) {
 //    double sum = a + b;
 //    cout << a << " + " << b << " = " << sum << endl;
 //    return sum;
 //}
-//
+
+
 //void subtract(double a, double b) {
 //    int max = (a > b)? a : b;
 //    int min = (a < b)? a : b;
 //    double difference = max - min;
 //    cout << max << " - " << min << " = " << difference << endl;
 //}
-//
+
+
 //void multiply(double a, double b) {
 //    double multiply = a * b;
 //    cout << a << " * " << b << " = " << multiply << endl;
 //}
-//
+
+
 //void divide(double a, double b) {
 //    if (b != 0) {
 //        double divide = a / b;
@@ -80,7 +81,8 @@ using namespace std;
 //        cout << a <<" / " << b <<" = Error: Division by zero!" << endl;
 //    }
 //}
-//
+
+
 //int main() {
 //    double a, b;
 //    info();
@@ -96,9 +98,6 @@ using namespace std;
 //}
 
 
-//#include <iostream>
-//using namespace std;
-//
 //int main() {
 //    for (int i = 0; i < 10; i++) {
 ////        if (i == 5) continue;
@@ -181,9 +180,6 @@ using namespace std;
 //}
 
 
-//#include "iostream"
-//using namespace std;
-//
 //int main() {
 //    int score;
 //    cout << "Enter your score (0-100): ";
@@ -210,11 +206,6 @@ using namespace std;
 //}
 
 
-
-//#include <iostream>
-//#include <random>
-//using namespace std;
-//
 //int main(){
 //    random_device rd;
 //    mt19937 gen(rd());
@@ -244,9 +235,6 @@ using namespace std;
 //}
 
 
-//#include <iostream>
-//using namespace std;
-//
 //int main() {
 //    int n;
 //    cout << "Enter a positive number: ";
@@ -267,10 +255,6 @@ using namespace std;
 //}
 
 
-//#include <iostream>
-//#include <iomanip>
-//using namespace std;
-//
 //int main() {
 //    cout << "Multiplication Table (1-10):" << endl;
 //    
@@ -294,22 +278,21 @@ using namespace std;
 //}
 
 
-
-//#include <iostream>
-//using namespace std;
-//
 //double add(double a, double b) {
 //    return a + b;
 //}
-//
+
+
 //double subtract(double a, double b) {
 //    return a - b;
 //}
-//
+
+
 //double multiply(double a, double b) {
 //    return a * b;
 //}
-//
+
+
 //double divide(double a, double b) {
 //    if (b == 0) {
 //        cout << "Error: Division by zero!" << endl;
@@ -317,7 +300,8 @@ using namespace std;
 //    }
 //    return a / b;
 //}
-//
+
+
 //int main() {
 //    double num1, num2;
 //    cout << "Enter two numbers: ";
@@ -336,18 +320,14 @@ using namespace std;
 //}
 
 
-
-
-//#include <iostream>
-//using namespace std;
-//
 //int maxOfThree(int a, int b, int c) {
 //    int max = a;
 //    if (b > max) max = b;
 //    if (c > max) max = c;
 //    return max;
 //}
-//
+
+
 //int main() {
 //    int x, y, z;
 //    cout << "Enter three numbers: ";
@@ -358,15 +338,11 @@ using namespace std;
 //}
 
 
-
-
-//#include <iostream>
-//using namespace std;
-//
 //bool isEven(int num) {
 //    return num % 2 == 0;
 //}
-//
+
+
 //int main() {
 //    int num;
 //    cout << "Enter a number: ";
@@ -381,10 +357,6 @@ using namespace std;
 //}
 
 
-
-//#include <iostream>
-//using namespace std;
-//
 //int power(int base, int exponent) {
 //    int result = 1;
 //    for (int i = 0; i < exponent; i++) {
@@ -392,7 +364,8 @@ using namespace std;
 //    }
 //    return result;
 //}
-//
+
+
 //int main() {
 //    int base, exponent;
 //    cout << "Enter base: ";
@@ -405,10 +378,6 @@ using namespace std;
 //}
 
 
-
-//#include <iostream>
-//using namespace std;
-//
 //void printRectangle(int width, int height, char symbol) {
 //    for (int i = 0; i < height; i++) {
 //        for (int j = 0; j < width; j++) {
@@ -417,7 +386,8 @@ using namespace std;
 //        cout << endl;
 //    }
 //}
-//
+
+
 //int main() {
 //    int width, height;
 //    char symbol;
@@ -434,11 +404,6 @@ using namespace std;
 //}
 
 
-
-//#include <iostream>
-//#include <cmath>
-//using namespace std;
-//
 //bool isPrime(int num) {
 //    if (num < 2) return false;
 //    if (num == 2) return true;
@@ -449,7 +414,8 @@ using namespace std;
 //    }
 //    return true;
 //}
-//
+
+
 //void printPrimes(int start, int end) {
 //    cout << "Prime numbers between " << start << " and " << end << ":" << endl;
 //    for (int i = start; i <= end; i++) {
@@ -459,7 +425,8 @@ using namespace std;
 //    }
 //    cout << endl;
 //}
-//
+
+
 //int main() {
 //    int start, end;
 //    cout << "Enter range (start end): ";
@@ -470,11 +437,6 @@ using namespace std;
 //}
 
 
-
-
-//#include <iostream>
-//using namespace std;
-//
 //long long fibonacci(int n) {
 //    if (n <= 1) return n;
 //    
@@ -486,7 +448,8 @@ using namespace std;
 //    }
 //    return b;
 //}
-//
+
+
 //void printFibonacci(int n) {
 //    cout << "First " << n << " Fibonacci numbers:" << endl;
 //    for (int i = 0; i < n; i++) {
@@ -494,7 +457,8 @@ using namespace std;
 //    }
 //    cout << endl;
 //}
-//
+
+
 //int main() {
 //    int n;
 //    cout << "Enter n: ";
@@ -506,13 +470,6 @@ using namespace std;
 //}
 
 
-
-
-//#include <iostream>
-//#include <string>
-//#include <algorithm>
-//using namespace std;
-//
 //string reverseString(const string& str) {
 //    string reversed = str;
 //    int n = str.length();
@@ -521,12 +478,14 @@ using namespace std;
 //    }
 //    return reversed;
 //}
-//
+
+
 //bool isPalindrome(const string& str) {
 //    string reversed = reverseString(str);
 //    return str == reversed;
 //}
-//
+
+
 //int main() {
 //    string input;
 //    cout << "Enter a string: ";
@@ -544,15 +503,13 @@ using namespace std;
 
 
 
-//#include <iostream>
-//using namespace std;
-//
 //void swap(int& a, int& b) {
 //    int temp = a;
 //    a = b;
 //    b = temp;
 //}
-//
+
+
 //int main() {
 //    int a, b;
 //    cout << "Enter two numbers: ";
@@ -565,28 +522,28 @@ using namespace std;
 //}
 
 
-//#include <iostream>
-//#include <cmath>
-//using namespace std;
-//
 //const double PI = 3.14159;
 //
 //double area(double radius) {
 //    return PI * radius * radius;
 //}
-//
+
+
 //double area(double length, double width) {
 //    return length * width;
 //}
-//
+
+
 //double area(double base, double height, bool isTriangle) {
 //    return 0.5 * base * height;
 //}
-//
+
+
 //double area(int side) {
 //    return side * side;
 //}
-//
+
+
 //int main() {
 //    cout << "Circle area (r=5): " << area(5.0) << endl;
 //    cout << "Rectangle area (5, 10): " << area(5.0, 10.0) << endl;
@@ -596,11 +553,6 @@ using namespace std;
 //}
 
 
-
-//#include <iostream>
-//#include <string>
-//using namespace std;
-//
 //string createGreeting(const string& name, const string& greeting = "Hello") {
 //    static int counter = 0;
 //    counter++;
@@ -608,13 +560,15 @@ using namespace std;
 //    cout << "Greeting " << counter << ": ";
 //    return greeting + ", " + name + "!";
 //}
-//
+
+
 //int getGreetingCount() {
 //    static int counter = 0;  // This would be separate from createGreeting's counter
 //    // To share counter, we'd need a global or class
 //    return 0;  // Simplified
 //}
-//
+
+
 //int main() {
 //    cout << createGreeting("Alice") << endl;
 //    cout << createGreeting("Bob", "Hi") << endl;
@@ -626,17 +580,13 @@ using namespace std;
 //}
 
 
-
-//#include <iostream>
-//#include <string>
-//using namespace std;
-//
 //// Template for maximum of two values
 //template<typename T>
 //T maxValue(T a, T b) {
 //    return (a > b) ? a : b;
 //}
-//
+
+
 //// Template for swap
 //template<typename T>
 //void swapValues(T& a, T& b) {
@@ -644,7 +594,8 @@ using namespace std;
 //    a = b;
 //    b = temp;
 //}
-//
+
+
 //// Template for printing array
 //template<typename T, size_t N>
 //void printArray(T (&arr)[N]) {
@@ -655,7 +606,8 @@ using namespace std;
 //    }
 //    cout << "]" << endl;
 //}
-//
+
+
 //int main() {
 //    // Test maxValue
 //    cout << "Max of 5 and 10: " << maxValue(5, 10) << endl;

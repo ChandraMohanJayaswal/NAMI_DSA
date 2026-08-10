@@ -1,5 +1,9 @@
 # Control Structures, Loops, Strings, Random Numbers
 
+    Reference: https://www.geeksforgeeks.org/cpp/cpp-loops/
+
+    ## Loops Questions
+    
     Question 1: Grade Calculator
         Write a program that asks the user for a score (0-100) and prints the grade using if-else:
 
@@ -43,6 +47,10 @@
         ...
 
 # Functions
+
+    Reference: https://www.geeksforgeeks.org/cpp/cpp-function-practice-problems/
+
+    ## Functions Questions
     Question 1: Basic Calculator Functions
         Write a program with functions for basic arithmetic operations:
 
@@ -101,7 +109,7 @@
         *****
         *****
         
-    
+        
     Question 6: Prime Number Checker
         Write a function isPrime that determines if a number is prime. Then write a program that prints all prime numbers in a given range.
 

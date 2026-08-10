@@ -169,15 +169,15 @@ void removDuplicateFromVector(vector<int> data) {
     return;
 }
 
-int main() {
+//int main() {
 //    vector<int> data = {1,4,9,16,9,7,4,9,11};
 //    removDuplicateFromVector(data);
 //    int result = alternating_sum(data);
 //    cout << "Result: " << result << endl;
 //    vectorDemo();
-    int arrayOne[] = {3,4,1,9,4,7,2};
-    int length = sizeof(arrayOne) / sizeof(arrayOne[0]);
-    bubbleSort(arrayOne, length);
+//    int arrayOne[] = {3,4,1,9,4,7,2};
+//    int length = sizeof(arrayOne) / sizeof(arrayOne[0]);
+//    bubbleSort(arrayOne, length);
 //    bubbleSort(arrayOne, length);
 //    insertionSortV2(arrayOne, length);
 //    selectionSort(arrayOne, length);
@@ -186,5 +186,5 @@ int main() {
 //    
 //    int result1 = sumArray(arrayOne, length);
 //    cout << "Result1: " << result1 << endl;
-    return 0;
-}
+//    return 0;
+//}

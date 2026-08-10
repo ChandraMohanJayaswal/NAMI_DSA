@@ -67,6 +67,9 @@ int sumOfDigits(int number) {
     }
 }
 
+
+
+
 struct Student {
     public:
         string name;
@@ -86,16 +89,16 @@ struct Student {
     }
 };
 
-//int main() {
-//    Student studentOne;
-//    Student studentTwo;
+int main() {
+    Student studentOne;
+    Student studentTwo;
 //    
 //    studentOne.name = "Ram";
 //    studentOne.phoneNumber = 8979788;
 //    studentOne.studentId = 124;
 //    studentOne.info();
-    
-    // Finding the size
+//    
+//     Finding the size
 //    cout <<"Size of Student Structure: " <<sizeof(Student) << endl;
 
     
@@ -113,5 +116,5 @@ struct Student {
 //    cout << "Fibonacci(10): " << fibonacci(10) << endl;
 //    cout << "2^8 = " << power(2, 8) << endl;
 //    cout << "Sum of digits of 12345: " << sumOfDigits(12345) << endl;
-//    return 0;
-//}
+    return 0;
+}
