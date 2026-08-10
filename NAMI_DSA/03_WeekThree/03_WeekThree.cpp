@@ -87,29 +87,18 @@ void insertionSortV2(int inputData[], int length) {
         cout <<inputData[i] <<" ";
     }
 }
-
 void bubbleSort(int inputData[], int length) {
-    int temp;
-//    bool swapped;
-    
-    // Outer loop for the number of passes
-    for (int i = 0; i < length - 1; i++) {
-//        swapped = false; // Reset the flag for each pass
+    //Outer loop for the number of passes
+    for (int pivot = 0; pivot < length - 1; pivot++) {
         // Inner loop to compare adjacent elements
-        for (int j = 0; j < length - i - 1; j++) {
-            // Swap if the element is greater than the next element
-            if (inputData[j] > inputData[j + 1]) {
-                temp = inputData[j];
-                inputData[j] = inputData[j + 1];
-                inputData[j + 1] = temp;
-//                swapped = true; // Mark that a swap occurred
+        for (int dataIndex = 0; dataIndex < length - 1 - pivot; dataIndex ++) {
+            int currentData = inputData[dataIndex];
+            int nextData = inputData[dataIndex + 1];
+            if (nextData < currentData) { //Swap for Ascending order
+                inputData[dataIndex + 1] = currentData;
+                inputData[dataIndex] = nextData;
             }
         }
-        
-//        // If no two elements were swapped in the inner loop, the array is sorted
-//        if (swapped == false) {
-//            break;
-//        }
     }
     
     //Display Sorted Data
@@ -117,6 +106,34 @@ void bubbleSort(int inputData[], int length) {
         cout <<inputData[i] <<" ";
     }
 }
+
+void bubbleSortOptimized(int inputData[], int length) {
+    bool isSwapped;
+    //Outer loop for the number of passes
+    for (int pivot = 0; pivot < length - 1; pivot++) {
+        isSwapped = false;
+        // Inner loop to compare adjacent elements
+        for (int dataIndex = 0; dataIndex < length - 1 - pivot; dataIndex ++) {
+            int currentData = inputData[dataIndex];
+            int nextData = inputData[dataIndex + 1];
+            if (nextData < currentData) { //Swap for Ascending order
+                inputData[dataIndex + 1] = currentData;
+                inputData[dataIndex] = nextData;
+                isSwapped = true; // Mark that a swap occurred
+            }
+        }
+        // If no two elements were swapped in the inner loop, the array is sorted
+        if (!isSwapped) {
+            break;
+        }
+    }
+    
+    //Display Sorted Data
+    for (int i = 0; i < length; i ++) {
+        cout <<inputData[i] <<" ";
+    }
+}
+
 
 int sumArray(int arrayInput[], int length){
     int sum = 0;
@@ -184,6 +201,7 @@ int main() {
     int arrayOne[] = {3,4,1,9,4,7,2};
     int length = sizeof(arrayOne) / sizeof(arrayOne[0]);
     bubbleSort(arrayOne, length);
+//    bubbleSort(arrayOne, length);
 //    insertionSortV2(arrayOne, length);
 //    selectionSort(arrayOne, length);
 //    int result = sum(arrayOne, length);

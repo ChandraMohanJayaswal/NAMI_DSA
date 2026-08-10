@@ -67,7 +67,38 @@ int sumOfDigits(int number) {
     }
 }
 
+struct Student {
+    public:
+        string name;
+        int phoneNumber;
+    
+    private:
+        int studentId;
+    
+    public: void info() {
+        cout << "Name: " << name << " PhoneNumber: " << phoneNumber << " Id: " << studentId << endl;
+    }
+    
+    
+    // Destructor
+    ~Student(){
+        cout << "Destroyed Student Variable" << endl;
+    }
+};
+
 //int main() {
+//    Student studentOne;
+//    Student studentTwo;
+//    
+//    studentOne.name = "Ram";
+//    studentOne.phoneNumber = 8979788;
+//    studentOne.studentId = 124;
+//    studentOne.info();
+    
+    // Finding the size
+//    cout <<"Size of Student Structure: " <<sizeof(Student) << endl;
+
+    
 //    helloWold(1);
 //    int sum = sumOfDigits(123);
 //    cout <<"Sum of Digits: " << sum << endl;
