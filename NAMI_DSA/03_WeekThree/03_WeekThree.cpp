@@ -46,30 +46,7 @@ void selectionSort(int inputData[], int length) {
     }
 }
 
-void insertionSort(int inputData[], int length) { //Worst
-    if (length < 2) { return;}
-    for (int pivotIndex = 1; pivotIndex < length; pivotIndex++){
-        for (int dataIndex = 0; dataIndex < pivotIndex; dataIndex ++){
-            int pivotData = inputData[pivotIndex];
-            int data = inputData[dataIndex];
-            if (pivotData < data) {
-                //Shift Right data from dataIndex to pivotIndex
-                for (int i = pivotIndex; i >= dataIndex; i--){
-                    inputData[i] = inputData[i-1];
-                }
-                //Insert Pivot data index dataIndex
-                inputData[dataIndex] = pivotData;
-            }
-        }
-    }
-    
-    //Display Sorted Data
-    for (int i = 0; i < length; i ++) {
-        cout <<inputData[i] <<" ";
-    }
-}
-
-void insertionSortV2(int inputData[], int length) {
+void insertionSort(int inputData[], int length) {
     if (length < 2) { return;}
     for (int pivotIndex = 1; pivotIndex < length; pivotIndex++){
         int pivotData = inputData[pivotIndex];
@@ -87,6 +64,7 @@ void insertionSortV2(int inputData[], int length) {
         cout <<inputData[i] <<" ";
     }
 }
+
 void bubbleSort(int inputData[], int length) {
     //Outer loop for the number of passes
     for (int pivot = 0; pivot < length - 1; pivot++) {
@@ -133,7 +111,6 @@ void bubbleSortOptimized(int inputData[], int length) {
         cout <<inputData[i] <<" ";
     }
 }
-
 
 int sumArray(int arrayInput[], int length){
     int sum = 0;
