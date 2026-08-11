@@ -731,3 +731,267 @@ bool sameSet(int a[], int b[], int sizeA, int sizeB) {
  should also keep count of the number of the exchanges it makes.
  Display these values on the screen.
  */
+
+
+/**
+ Write a function that dynamically allocates an array of integers. The function
+should accept an integer argument indicating the number of elements to allocate.
+The function should return a pointer to the array.
+ */
+
+// Function to dynamically allocate an array
+int* allocateArray(int size) {
+    int* arr = new int[size];
+    
+    if (arr == nullptr) {
+        cout << "Error: Memory allocation failed!" << endl;
+        return nullptr;
+    }
+    
+    cout << "Memory allocated for " << size << " scores." << endl;
+    return arr;
+}
+
+//int main() {
+//    int numElements;
+//    
+//    cout << "Enter the number of elements: ";
+//    cin >> numElements;
+//    
+//    // Allocate the array
+//    int* myArray = allocateArray(numElements);
+//    
+//    // Check if allocation was successful
+//    if (myArray == nullptr) {
+//        cout << "Memory allocation failed!" << endl;
+//        return 1;
+//    }
+//    
+//    // Fill the array
+//    cout << "Enter " << numElements << " values:" << endl;
+//    for (int i = 0; i < numElements; i++) {
+//        cout << "Value " << (i + 1) << ": ";
+//        cin >> myArray[i];
+//    }
+//    
+//    // Display the array
+//    cout << "\nYou entered: ";
+//    for (int i = 0; i < numElements; i++) {
+//        cout << myArray[i] << " ";
+//    }
+//    cout << endl;
+//    
+//    // Free the memory
+//    delete[] myArray;
+//    
+//    return 0;
+//}
+
+/**
+ Write a program that dynamically allocates an array large enough to hold a user-
+ defined number of test scores. Once all the scores are entered, the array should
+ be passed to a function that sorts them in ascending order. Another function
+ should be called that calculates the average score. The program should display
+ the sorted list of scores and averages with appropriate headings.
+ */
+
+// Function prototypes
+void getScores(int* scores, int size);
+void sortScores(int* scores, int size);
+double calculateAverage(int* scores, int size);
+void displayScores(int* scores, int size);
+void displayResults(int* scores, int size, double average);
+
+//int main() {
+//    int numScores;
+//
+//    // Get the number of test scores
+//    cout << "How many test scores would you like to enter? ";
+//    cin >> numScores;
+//    
+//    // Validate input
+//    if (numScores <= 0) {
+//        cout << "Invalid number of scores!" << endl;
+//        return 1;
+//    }
+//    
+//    // Dynamically allocate the array
+//    int* scores = allocateArray(numScores);
+//    
+//    // Check if allocation was successful
+//    if (scores == nullptr) {
+//        cout << "Memory allocation failed!" << endl;
+//        return 1;
+//    }
+//    
+//    // Get the scores from the user
+//    getScores(scores, numScores);
+//    
+//    // Display original scores
+//    cout << "\nOriginal scores: ";
+//    displayScores(scores, numScores);
+//    
+//    // Sort the scores
+//    sortScores(scores, numScores);
+//    
+//    // Calculate the average
+//    double average = calculateAverage(scores, numScores);
+//    
+//    // Display the results
+//    displayResults(scores, numScores, average);
+//    
+//    // Free the dynamically allocated memory
+//    delete[] scores;
+//    cout << "\nMemory freed successfully!" << endl;
+//    
+//    return 0;
+//}
+
+
+// Function to get scores from the user
+void getScores(int* scores, int size) {
+    cout << "\nEnter the test scores:" << endl;
+    for (int i = 0; i < size; i++) {
+        do {
+            cout << "Score #" << (i + 1) << ": ";
+            cin >> scores[i];
+            
+            // Validate score (0-100)
+            if (scores[i] < 0 || scores[i] > 100) {
+                cout << "Invalid score! Please enter a value between 0 and 100." << endl;
+            }
+        } while (scores[i] < 0 || scores[i] > 100);
+    }
+}
+
+// Function to sort scores in ascending order (Bubble Sort)
+void sortScores(int* scores, int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (scores[j] > scores[j + 1]) {
+                // Swap elements
+                int temp = scores[j];
+                scores[j] = scores[j + 1];
+                scores[j + 1] = temp;
+            }
+        }
+    }
+}
+
+// Function to calculate the average
+double calculateAverage(int* scores, int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += scores[i];
+    }
+    return static_cast<double>(sum) / size;
+}
+
+// Function to display scores in a single line
+void displayScores(int* scores, int size) {
+    for (int i = 0; i < size; i++) {
+        cout << scores[i] << "  ";
+    }
+    cout << endl;
+}
+
+// Function to display formatted results
+void displayResults(int* scores, int size, double average) {
+    // Display sorted scores in a table
+    cout << "\nSorted Test Scores (Ascending Order):" << endl;
+    cout << "----------------------------------------" << endl;
+    cout << "Position  Score" << endl;
+    cout << "--------  -----" << endl;
+    
+    for (int i = 0; i < size; i++) {
+        cout << setw(8) << (i + 1) << "  " << setw(5) << scores[i] << endl;
+    }
+    
+    // Display statistics
+    cout << "Number of scores: " << size << endl;
+    cout << "Lowest score:     " << scores[0] << endl;
+    cout << "Highest score:    " << scores[size - 1] << endl;
+    cout << fixed << setprecision(2);
+    cout << "Average score:    " << average << endl;
+}
+
+
+/**
+ The following function uses reference variables as parameters. Rewrite the
+ function so it uses pointers instead of reference variables, and then demonstrate
+ the function in a complete program.
+ int doSomething(int &x, int &y)
+ {
+ int temp = x;
+ x = y * 10;
+ y = temp * 10 ;
+ return x + y ;
+ }
+ */
+
+int doSomething(int *x, int *y);
+
+//int main() {
+//    int a, b;
+//    int result;
+//    
+//    // Get input from user
+//    cout << "\nEnter value for a: ";
+//    cin >> a;
+//    cout << "Enter value for b: ";
+//    cin >> b;
+//    
+//    // Display values before calling the function
+//    cout << "\nBefore calling doSomething():" << endl;
+//    cout << "  a = " << a << endl;
+//    cout << "  b = " << b << endl;
+//    
+//    // Call the function with pointers (addresses)
+//    result = doSomething(&a, &b);
+//    
+//    // Display values after calling the function
+//    cout << "\nAfter calling doSomething():" << endl;
+//    cout << "  a = " << a << endl;
+//    cout << "  b = " << b << endl;
+//    cout << "  Result = " << result << endl;
+//    
+//    return 0;
+//}
+
+// Function rewritten to use pointers instead of references
+int doSomething(int *x, int *y) {
+    // Store the value pointed to by x in temp
+    int temp = *x;
+    
+    // Modify the value at x: y * 10
+    *x = *y * 10;
+    
+    // Modify the value at y: temp * 10
+    *y = temp * 10;
+    
+    // Return the sum of the new values
+    return *x + *y;
+}
+
+
+/**
+ In statistics, the mode of a set of values is the value that occurs most often or with
+ the greatest frequency. Write a function that accepts as arguments the following:
+ A) An array of integers
+ B) An integer that indicates the number of elements in the array
+ The function should determine the mode of the array. That is, it should determine
+ which value in the array occurs most often. The mode is the value the function
+ should return. If the array has no mode (none of the values occur more than once),
+ the function should return -1. (Assume the array will always contain non-negative
+ values.)
+ Demonstrate your pointer prowess by using pointer notation instead of array
+ notation in this function.
+ */
+
+
+/**
+ Write a function that accepts an int array and the array’s size as arguments. The
+ function should create a copy of the array, except that the element values should
+ be reversed in the copy. The function should return a pointer to the new array.
+ Demonstrate the function in a complete program.
+ */
