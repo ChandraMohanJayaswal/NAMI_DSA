@@ -489,3 +489,245 @@ bool isSquare(int num) {
  rainfall for the year, the average monthly rainfall, and the months with the highest
  and lowest amounts.
  */
+
+
+/**
+ Nachos and Salsa
+ Write a program that lets a maker of nachos and salsa keep track of sales for five
+ different types of salsa: mild, medium, sweet, hot and zesty. The program should
+ use two parallel 5-element arrays: an array of strings that holds the five salsa
+ names and an array of integers that hold the number of jars sold during the past
+ month for each salsa type. The salsa names should be stored using an initialization
+ list at the time the name array is created. The program should prompt the user to
+ enter the number of jars sold for each type. Once this sales data has been entered,
+ the program should produce a report that displays sales for each salsa type, total
+ sales, and the names of the highest selling and lowest selling products.
+ 
+ Input Validation: Do not accept negative values for number of jars sold.
+ */
+
+
+/**
+ Grade Book
+ A teacher has five students who have taken four tests. The teacher uses the
+ following grading scale to assign a letter grade to a student, based on the average
+ of his or her four test scores.
+ 
+ Write a program that uses an array of string objects to hold the five student
+ names, an array of five characters to hold the five students’ letter grades, and five
+ arrays of four doubles to hold each student’s set of test scores.
+ The program should allow the user to enter each student’s name and his or her
+ four test scores. It should then calculate and display each student’s average test
+ score and a letter grade based on the average.
+ 
+ Input Validation: Do not accept test scores less than 0 or greater than 100
+ */
+
+
+/**
+ 2D Array Operations
+ Write a program that creates a two-dimensional array initialized with test data.
+ Use any data type you wish. The program should have the following functions:
+ - getTotal. This function should accept a two-dimensional array as its
+ argument and return the total of all the values in the array.
+ - getAverage. This function should accept a two-dimensional array as its
+ argument and return the average of all the values in the array.
+ - getRowTotal. This function should accept a two-dimensional array as its
+ first argument and an integer as its second argument. The second argument
+ should be the subscript of a row in the array. The function should return
+ the total of the values in the specified row.
+ - getColumnTotal. This function should accept a two-dimensional array as
+ its first argument and an integer as its second argument. The second
+ argument should be the subscript of a column in the array. The function
+ should return the total of the values in the specified column.
+ - getHighestInRow. This function should accept a two-dimensional array as
+ its first argument and an integer as its second argument. The second
+ argument should be the subscript of a row in the array. The function
+ should return the highest value in the specified row of the array.
+ - getLowestInRow. This function should accept a two-dimensional array as
+ its first argument and an integer as its second argument. The second
+ argument should be the subscript of a row in the array. The function
+ should return the lowest value in the specified row of the array.
+ 
+ Demonstrate each of the functions in this program.
+ */
+
+
+/**
+ Charge Account Validation
+ Write a program that lets the user enter a charge account number. The program
+ should determine if the number is valid by checking for it in the following list:
+ 5658845 4520125 7895122 8777541 8451277
+ 1302850 8080152 4562555 5552012 5050552
+ 7825877 1250255 1005231 6545231 3852085
+ 7576651 7881200 4581002
+ The list of numbers above should be initialized in a single-dimensional array. A
+ simple linear search should be used be used to locate the number entered by the
+ user. If the user enters a number that is in the array, the program should display a
+ message saying that the number is valid. If the user enters a number that is not in
+ the array, the program should display a message indicating that the number is
+ invalid.
+ */
+
+
+/**
+ Write a method
+ boolean sameSet(int a[], int b[])
+ that checks whether two arrays have the same elements in some order, ignoring
+ duplicates. For example, the two arrays
+ 1 4 9 16 9 7 4 9 11
+ and
+ 11 11 7 9 16 4 1
+ would be considered identical. Implement this in a program.
+ */
+
+#include <vector>
+#include <algorithm>
+
+// Function to remove duplicates and get unique elements
+vector<int> getUniqueElements(int arr[], int size) {
+    vector<int> temp(arr, arr + size);
+    sort(temp.begin(), temp.end());
+    auto newEnd = unique(temp.begin(), temp.end()); //vector<int>::iterator newEnd = unique(temp.begin(), temp.end());
+    temp.erase(newEnd, temp.end());
+    return temp;
+}
+
+bool sameSet(int a[], int b[], int sizeA, int sizeB) {
+    vector<int> uniqueA = getUniqueElements(a, sizeA);
+    vector<int> uniqueB = getUniqueElements(b, sizeB);
+    
+    return uniqueA == uniqueB;
+}
+
+
+//int main() {
+//    // Test arrays
+//    int arr1[] = {1, 4, 9, 16, 9, 7, 4, 9, 11};
+//    int arr2[] = {11, 11, 7, 9, 16, 4, 1};
+//    int arr3[] = {1, 2, 3, 4, 5};
+//    int arr4[] = {1, 2, 3, 4, 6};
+//    
+//    int size1 = sizeof(arr1) / sizeof(arr1[0]);
+//    int size2 = sizeof(arr2) / sizeof(arr2[0]);
+//    int size3 = sizeof(arr3) / sizeof(arr3[0]);
+//    int size4 = sizeof(arr4) / sizeof(arr4[0]);
+//    
+//    cout << "========================================" << endl;
+//    cout << "   SAME SET - VECTOR VERSION" << endl;
+//    cout << "========================================" << endl;
+//    
+//    // Test 1: Same set
+//    cout << "\nTest 1: ";
+//    if (sameSet(arr1, arr2, size1, size2)) {
+//        cout << "Arrays have the same set" << endl;
+//    } else {
+//        cout << "Arrays have different sets" << endl;
+//    }
+//    
+//    // Test 2: Different set
+//    cout << "Test 2: ";
+//    if (sameSet(arr3, arr4, size3, size4)) {
+//        cout << "Arrays have the same set" << endl;
+//    } else {
+//        cout << "Arrays have different sets" << endl;
+//    }
+//    
+//    return 0;
+//}
+
+
+/**
+ Consider the following unsorted sets:
+ (i) 7 2 3 8 9 1
+ (ii) 55 22 44 11 33
+ (iii) 101 22 44 57 45 77
+ Sort the above set in ascending order manually using Bubble Sort
+ Algorithm and display the elements in the set after each exchange
+ performed. Modify the program BubbleSortDemo.cpp to display the
+ set after each exchange/swap.
+ */
+
+
+/**
+ (i) 5 7 2 8 9 1
+ (ii) 8 29 19 7 45 18
+ (iii) 123 11 2 50 55 24 34
+ Sort the above set in ascending order manually using Selection Sort
+ Algorithm and display the elements in the set after each exchange
+ performed. Modify the program SelectionSortDemo.cpp to display the
+ set after each exchange/swap.
+ */
+
+/**
+ Consider the following unsorted set:
+ 7 2 4 6 3 1
+ 25 12 37 65 24 17
+ 101 27 33 45 27 68 55
+ Sort the above set in ascending order manually using Insertion Sort
+ Algorithm and display the elements in the set after each exchange
+ performed. Modify the program InsertionSortDemo.cpp to display the
+ set after each pass.
+ */
+
+
+/**
+ Write a function that checks whether two vectors have the same
+ elements in the same order. Demonstrate in a program.
+ */
+
+
+/**
+ Write a function that computes the alternating sum of all the elements
+ in a vector. For example, if alternating_sum is called with a vector
+ containing
+ 1 4 9 16 9 7 4 9 11
+ then it computes
+ 1-4+9-16+9-7+4-9+11=-2
+ */
+
+
+/**
+ Write a function that removes duplicates from a vector. For example,
+ if remove_duplicates is called with a vector containing
+ 1 4 9 16 9 7 4 9 11
+ then the vector is changed to
+ 1 4 9 16 7 11
+ */
+
+
+/**
+ Charge Account Validation Modification
+ Modify the program from Last Week Exercises you wrote for the
+ previous problem (Charge Account Validation) so it performs a binary
+ search to locate valid account numbers. Use the selection sort
+ algorithm to sort the array before the binary search is performed.
+ */
+
+
+/**
+ Rainfall statistics Modification
+ Modify the Rainfall Statistics program from Last Week Exercises you
+ wrote for problem # 2.The program should display a list of months,
+ sorted in order of rainfall, from highest to lowest.
+ */
+
+
+/**
+ String Selection Sort
+ Modify the selectionSort function given in (Pr8-5) in the sample
+ programs folder on Nile so it sorts an array of strings instead of an
+ array of ints. Test the function with a driver program.
+ */
+
+
+/**
+ Sorting Benchmarks
+ Write a program that uses two identical arrays of at least 20 integers.
+ It should call a function that uses the bubble sort algorithm to sort one
+ of the arrays in ascending order. The function should keep a count of
+ the number of exchanges it makes. The program then should call a
+ function that uses the selection sort algorithm to sort the other array. It
+ should also keep count of the number of the exchanges it makes.
+ Display these values on the screen.
+ */
