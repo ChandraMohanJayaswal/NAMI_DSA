@@ -57,3 +57,28 @@ void swap2(int *x, int *y) {
 //    
 //    return 0;
 //}
+
+
+void displayCallCount1() {
+    static int callCount = 0;
+    
+    callCount++;
+    cout << "I have been called " << callCount;
+    
+    if (callCount == 1) {// Handle singular/plural
+        cout << " time." << endl;
+    } else {
+        cout << " times." << endl;
+    }
+}
+
+//int main() {
+//    cout << "Calling the function 15 times:" << endl;
+//    cout << "--------------------------------" << endl;
+//
+//    for (int i = 0; i < 15; i++) {
+//        displayCallCount1();
+//    }
+//
+//    return 0;
+//}
