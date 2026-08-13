@@ -632,3 +632,12 @@ using namespace std;
 //    
 //    return 0;
 //}
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main() {
+    double num = 12345.678;
+    cout << setprecision(5) << num;
+    return 0;
+}
