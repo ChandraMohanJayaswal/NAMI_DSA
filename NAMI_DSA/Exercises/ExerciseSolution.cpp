@@ -34,13 +34,7 @@ double getDistance(double speed, double time) { return speed * time; }
 //        cout << "Error: Speed and time cannot be negative." << endl;
 //        return 1;
 //    }
-//
-//    double distance = getDistance(speed, time);
-//
-//    cout << fixed << setprecision(2);
-//    cout << "\nThe vehicle traveled " << distance << " miles." << endl;
-//    return 0;
-//}
+ 
 
 /**
  Write a min() function that returns the smallest of two given integers.

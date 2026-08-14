@@ -633,11 +633,50 @@ using namespace std;
 //    return 0;
 //}
 
-#include <iostream>
-#include <iomanip>
-using namespace std;
-int main() {
-    double num = 12345.678;
-    cout << setprecision(5) << num;
-    return 0;
+//#include <iostream>
+//#include <iomanip>
+//using namespace std;
+//int main() {
+//    double num = 12345.678;
+//    cout << setprecision(5) << num;
+//    return 0;
+//}
+
+
+void update(int a[], int length){
+    for(int i = 0; i < length; i++){
+        a[i] = a[i] + 10;
+    }
 }
+void display(int a[], int length){
+    for(int i = 0; i < length; i++){
+        cout << a[i] << " ";
+    }
+    cout << endl;
+}
+
+void updateValue(int value){
+    value = value + 10;
+}
+
+//void updateValue(int &value){
+//    value = value + 10;
+//}
+
+//void updateValue(int* value){
+//    *value = *value + 10;
+//}
+void displayValue(int value){
+    cout << value << endl;
+}
+
+//int main() {
+//    int value = 10;
+//    int a[] = {1,2,3,4,5,6,7};
+//    update(a, 7); //update(&a[0], 7);
+//    display(a, 7);
+////    updateValue(&value);
+//    updateValue(value);
+//    displayValue(value);
+//    return 0;
+//}
