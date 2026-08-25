@@ -7,6 +7,7 @@
 
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Car {
@@ -132,11 +133,6 @@ class L5Student: Student {
 //}
 
 
-
-#include <iostream>
-#include <string>
-using namespace std;
-
 // Abstract base class as there is a
 // pure virtual method
 class Shape{
@@ -230,13 +226,14 @@ void process(Account *account) {
     account->deposit(50);
     account->balance();
 }
-int main() {
-    Account *one = new SavingAccount();
-    Account *two = new FixedAccount();
-    process(one);
-    process(two);
-    
-    delete one;
-    delete two;
-    return 0;
-}
+
+//int main() {
+//    Account *one = new SavingAccount();
+//    Account *two = new FixedAccount();
+//    process(one);
+//    process(two);
+//    
+//    delete one;
+//    delete two;
+//    return 0;
+//}
