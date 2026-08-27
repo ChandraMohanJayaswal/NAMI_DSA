@@ -16,6 +16,7 @@ class Car {
     
     public:
         Car () {
+            cout << "Calling no argument constructor" << endl;
             name = "";
         }
         Car(string name) {
@@ -35,8 +36,12 @@ class Car {
 
 //int main() {
 //    Car carOne; //Car* carOne = new Car();
+////    Car* carOne = new Car();
 //    Car* carTwo = new Car("BYD");
 //    carOne.setName("Tesla");
+//    carTwo = &carOne;
+//    carOne.setName("Tata");
+//    carTwo->setName("Void");
 //    cout << "Name: " << carOne.getName() << endl;
 //    cout << "Name: " << carTwo->getName() << endl;
 //
@@ -52,25 +57,25 @@ class Car {
 //#include <iostream>
 //using namespace std;
 //
-//int Count = 0;
-//class Test {
-//public:
-//    Test(){
-//
-//        // Number of times constructor is called
-//        Count++;
-//        cout << "No. of Object created: "
-//             << Count << endl;
-//    }
-//    ~Test() {
-//        
-//        // It will print count in decending order
-//        cout << "No. of Object destroyed: " << Count
-//             << endl;
-//        Count--;
-//    }
-//};
-//
+int Count = 0;
+class Test {
+public:
+    Test(){
+
+        // Number of times constructor is called
+        Count++;
+        cout << "No. of Object created: "
+             << Count << endl;
+    }
+    ~Test() {
+        
+        // It will print count in decending order
+        cout << "No. of Object destroyed: " << Count
+             << endl;
+        Count--;
+    }
+};
+
 //int main() {
 //    Test t, t1, t2, t3;
 //    return 0;
@@ -78,7 +83,7 @@ class Car {
 
 
 class Person {
-    protected:
+protected:
         string name;
 };
 
@@ -94,15 +99,15 @@ class Student : Person {
         void displayInfo() {
             cout << "Roll Number: " << rollNumer << endl;
             cout << "Roll Number: " << name << endl;
-
         }
-        
         void setName(string name) {
             this->name = name;
         }
         string getName() {
             return this->name;
         }
+    
+    ~Student() {}
 };
 
 class L5Student: Student {
@@ -112,6 +117,7 @@ class L5Student: Student {
     public:
         L5Student(){
             roomName = "101";
+//            this->name = "Shyam"
             this->setName("Shyam");
         }
     
@@ -119,8 +125,9 @@ class L5Student: Student {
             cout << "Roll Number: " << rollNumer << endl;
             cout << "Roll Number: " << this->getName() << endl;
             cout << "Room Name: " << roomName << endl;
-
         }
+    
+    ~L5Student() {}
 };
 
 
@@ -140,6 +147,7 @@ protected:
     string color;
 
 public:
+    Shape () {}
     Shape(string color) : color(color){}
     virtual double area() = 0;
     string getColor(){
@@ -157,14 +165,14 @@ public:
         this->length = length;
         this->width = width;
     }
-    double area() {
+    double area() override{
         return length * width;
     }
 };
 
 //int main() {
 //    Shape* s = new Rectangle("Yellow", 2, 4);
-//
+////
 //    cout<<"Rectangle color is "<<s->getColor()<<" and area is : "<<s->area()<<endl;
 //    return 0;
 //}
