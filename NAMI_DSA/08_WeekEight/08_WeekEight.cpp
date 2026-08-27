@@ -245,3 +245,51 @@ void process(Account *account) {
 //    delete two;
 //    return 0;
 //}
+
+
+class Point {
+private:
+    int x;
+    int y;
+    
+public:
+    Point() {
+        this->x = 0;
+        this->y = 0;
+    }
+    
+    Point(int x, int y) {
+        this->x = x;
+        this->y = y;
+    }
+    
+//    friend Point operator+(Point&, Point&);
+    friend Point operator+(Point *, Point *);
+
+};
+
+
+//Point operator+(Point& p1, Point& p2){
+//    Point p3;
+//    p3.x = p1.x + p2.x;
+//    p3.y = p1.y + p2.y;
+//    return p3;
+//}
+
+Point operator+(Point *p1, Point *p2){
+    Point p3;
+//    p3.x = p1.x + p2.x;
+//    p3.y = p1.y + p2.y;
+    return p3;
+}
+
+int main() {
+    Point pointOne(10, 20);
+    Point pointTwo(20, 30);
+//    Point pointThree = pointOne + pointTwo;
+    
+    Point *point1 = new Point(10, 20);
+    Point *point2 = new Point(20, 30);
+    Point point3 = point1 + point2;
+    return 0;
+}
