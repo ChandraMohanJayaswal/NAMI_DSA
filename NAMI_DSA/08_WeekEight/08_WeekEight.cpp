@@ -247,6 +247,9 @@ void process(Account *account) {
 //}
 
 
+/**
+ Operator Overloading Using Friend Function
+ */
 class Point {
 private:
     int x;
@@ -263,33 +266,69 @@ public:
         this->y = y;
     }
     
-//    friend Point operator+(Point&, Point&);
-    friend Point operator+(Point *, Point *);
-
+    friend Point operator+(Point&, Point&);
 };
 
 
-//Point operator+(Point& p1, Point& p2){
-//    Point p3;
-//    p3.x = p1.x + p2.x;
-//    p3.y = p1.y + p2.y;
-//    return p3;
-//}
-
-Point operator+(Point *p1, Point *p2){
+Point operator+(Point& p1, Point& p2){
     Point p3;
-//    p3.x = p1.x + p2.x;
-//    p3.y = p1.y + p2.y;
+    p3.x = p1.x + p2.x;
+    p3.y = p1.y + p2.y;
     return p3;
 }
 
-int main() {
-    Point pointOne(10, 20);
-    Point pointTwo(20, 30);
+
+//int main() {
+//    Point pointOne(10, 20);
+//    Point pointTwo(20, 30);
 //    Point pointThree = pointOne + pointTwo;
+//    
+//    Point *point1 = new Point(10, 20);
+//    Point *point2 = new Point(20, 30);
+//    Point point3 = *point1 + *point2;
+//    return 0;
+//}
+
+/**
+ Global Function as a Friend Function
+ Member Function of Another Class as Friend Function
+ */
+class Box;
+
+class Basket {
+    public:
+        void accessV2(Box &box);
+};
+
+class Box {
+private:
+    int goldAmount;
+protected:
+    int moneyAmount;
     
-    Point *point1 = new Point(10, 20);
-    Point *point2 = new Point(20, 30);
-    Point point3 = point1 + point2;
-    return 0;
+public:
+    Box() {
+        goldAmount = 10;
+        moneyAmount = 1000;
+    }
+    friend void access(Box &box); //Global Function as a Friend Function
+    friend void Basket::accessV2(Box &box); //Member Function of Another Class as Friend Function
+};
+ 
+void access(Box &box) {
+    cout << "Gold Amount: " << box.goldAmount << endl;
+    cout << "Money Amount:" << box.moneyAmount << endl;
 }
+
+void Basket::accessV2(Box &box) {
+    cout << "Gold Amount: " << box.goldAmount << endl;
+    cout << "Money Amount:" << box.moneyAmount << endl;
+}
+
+//int main() {
+//    Box box;
+//    access(box);
+//    Basket basket;
+//    basket.accessV2(box);
+//    return 0;
+//}

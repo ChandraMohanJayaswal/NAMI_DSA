@@ -32,6 +32,7 @@
 # Friends, Operator Overloading and more on objects
     - Operator Overloading using Friend Function, Member Function, Global Non-Friend Function
     Reference:
-        13. https://www.geeksforgeeks.org/cpp/different-ways-of-operator-overloading-in-cpp/
+        13. https://www.geeksforgeeks.org/cpp/friend-class-function-cpp/
+        14. https://www.geeksforgeeks.org/cpp/different-ways-of-operator-overloading-in-cpp/
 
 
