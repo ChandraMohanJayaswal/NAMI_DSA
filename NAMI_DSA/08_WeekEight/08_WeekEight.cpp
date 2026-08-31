@@ -249,26 +249,34 @@ void process(Account *account) {
 
 /**
  Operator Overloading Using Friend Function
+ Operator Overloading Using Member Function
  */
 class Point {
-private:
-    int x;
-    int y;
+    private:
+        int x;
+        int y;
     
+    public:
+        Point() {
+            this->x = 0;
+            this->y = 0;
+        }
+        Point(int x, int y) {
+            this->x = x;
+            this->y = y;
+        }
 public:
-    Point() {
-        this->x = 0;
-        this->y = 0;
+    Point operator-(Point& p2){ //Operator Overloading Using Member Function
+        Point p3;
+        p3.x = this->x - p2.x;
+        p3.y = this->y - p2.y;
+        return p3;
     }
-    
-    Point(int x, int y) {
-        this->x = x;
-        this->y = y;
+    friend Point operator+(Point&, Point&); //Operator Overloading Using Friend Function
+    void display() {
+        cout << "X: " << this->x << " Y: " << this->y << endl;
     }
-    
-    friend Point operator+(Point&, Point&);
 };
-
 
 Point operator+(Point& p1, Point& p2){
     Point p3;
@@ -282,10 +290,17 @@ Point operator+(Point& p1, Point& p2){
 //    Point pointOne(10, 20);
 //    Point pointTwo(20, 30);
 //    Point pointThree = pointOne + pointTwo;
+//    pointThree.display();
+//    Point pointSub = pointOne - pointTwo;
+//    pointSub.display();
 //    
 //    Point *point1 = new Point(10, 20);
 //    Point *point2 = new Point(20, 30);
 //    Point point3 = *point1 + *point2;
+//    point3.display();
+//    Point point3Sub = *point1 - *point2;
+//    point3Sub.display();
+//
 //    return 0;
 //}
 
@@ -298,6 +313,7 @@ class Box;
 class Basket {
     public:
         void accessV2(Box &box);
+
 };
 
 class Box {
