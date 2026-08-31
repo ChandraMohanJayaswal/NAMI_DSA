@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <string>
+#include <exception>
 using namespace std;
 
 class Car {
@@ -272,6 +273,14 @@ public:
         p3.y = this->y - p2.y;
         return p3;
     }
+    
+    Point operator/(Point& p2){ //Operator Overloading Using Member Function
+        Point p3;
+        p3.x = this->x / p2.x;
+        p3.y = this->y / p2.y;
+        return p3;
+    }
+    
     friend Point operator+(Point&, Point&); //Operator Overloading Using Friend Function
     void display() {
         cout << "X: " << this->x << " Y: " << this->y << endl;
@@ -286,23 +295,27 @@ Point operator+(Point& p1, Point& p2){
 }
 
 
-//int main() {
-//    Point pointOne(10, 20);
-//    Point pointTwo(20, 30);
-//    Point pointThree = pointOne + pointTwo;
-//    pointThree.display();
-//    Point pointSub = pointOne - pointTwo;
-//    pointSub.display();
-//    
-//    Point *point1 = new Point(10, 20);
-//    Point *point2 = new Point(20, 30);
-//    Point point3 = *point1 + *point2;
-//    point3.display();
-//    Point point3Sub = *point1 - *point2;
-//    point3Sub.display();
-//
-//    return 0;
-//}
+int main() {
+    Point pointOne(10, 20);
+    Point pointTwo(20, 30);
+    Point pointThree = pointOne + pointTwo;
+    pointThree.display();
+    Point pointSub = pointOne - pointTwo;
+    pointSub.display();
+    
+    Point pointDiv = pointOne / pointTwo;
+    pointDiv.display();
+
+    
+    Point *point1 = new Point(10, 20);
+    Point *point2 = new Point(20, 30);
+    Point point3 = *point1 + *point2;
+    point3.display();
+    Point point3Sub = *point1 - *point2;
+    point3Sub.display();
+
+    return 0;
+}
 
 /**
  Global Function as a Friend Function
