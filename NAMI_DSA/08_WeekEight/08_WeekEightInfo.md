@@ -7,7 +7,7 @@
     - Inheritance
     
     - Constructor [Default, Copy, Move]
-    - Descructor
+    - Destructor
     
     - Access Specifiers [public, private, protected]
     

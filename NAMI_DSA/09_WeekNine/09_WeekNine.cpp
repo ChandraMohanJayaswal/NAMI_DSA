@@ -34,17 +34,20 @@ class B {
 class C: public A, public B {
     private: int cx;
     
-    public:
-        void display() {
-            this->A::display();
-            this->B::display();
-            cout << "Cx: " << cx << endl;
-
-        }
+//    public:
+//        void display() {
+//            this->A::display();
+//            this->B::display();
+//            cout << "Cx: " << cx << endl;
+//
+//        }
 };
 //int main() {
 //    C c;
-////    c.A::display();
-//    c.display();
+//    c.A::display();
+////    c.display();
 //    return 0;
 //}
+
+
+
