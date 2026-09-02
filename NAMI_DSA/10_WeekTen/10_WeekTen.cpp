@@ -177,42 +177,42 @@ void printArray(T arr[], int size) {
     for(int i = 0; i < size; i++) cout << arr[i] << " ";
 }
 
-int main() {
-    print(10, 3.14);           // int and double
-    print("Hello", 42);        // const char* and int
-    print(2.5, "World");       // double and const char*
-    
-    cout << maximum(10, 20) << endl;        // 20
-    cout << maximum(3.14, 2.71) << endl;    // 3.14
-    cout << maximum('A', 'Z') << endl;      // Z (ASCII)
-    
-    cout << sum<int, double>(10, 5.5) << endl;     // 15
-    cout << sum<double, int>(10.5, 5) << endl;     // 15.5
-        
-    // Automatically deduces
-    cout << sum(10, 5.5) << endl;   // T1=int, T2=double -> returns int (15)
-    
-    int intArr[] = {1, 2, 3, 4, 5};
-    double doubleArr[] = {1.1, 2.2, 3.3};
-        
-    cout << arraySum(intArr, 5) << endl;      // 15
-    cout << arraySum(doubleArr, 3) << endl;   // 6.6
-    
-    int x = 5, y = 10;
-    double p = 3.14, q = 2.71;
-    string s1 = "Hello", s2 = "World";
-        
-    swapValues(x, y);
-    swapValues(p, q);
-    swapValues(s1, s2);
-        
-    cout << "x=" << x << ", y=" << y << endl;        // x=10, y=5
-    cout << "p=" << p << ", q=" << q << endl;        // p=2.71, q=3.14
-    cout << "s1=" << s1 << ", s2=" << s2 << endl;    // s1=World, s2=Hello
-    
-    cout << square(5) << endl;           // 25 (int)
-    cout << square<double>(2.5) << endl; // 6.25 (double)
-    cout << square(2.5) << endl;         // 6 (int - uses default!)
-    
-    return 0;
-}
+//int main() {
+//    print(10, 3.14);           // int and double
+//    print("Hello", 42);        // const char* and int
+//    print(2.5, "World");       // double and const char*
+//    
+//    cout << maximum(10, 20) << endl;        // 20
+//    cout << maximum(3.14, 2.71) << endl;    // 3.14
+//    cout << maximum('A', 'Z') << endl;      // Z (ASCII)
+//    
+//    cout << sum<int, double>(10, 5.5) << endl;     // 15
+//    cout << sum<double, int>(10.5, 5) << endl;     // 15.5
+//        
+//    // Automatically deduces
+//    cout << sum(10, 5.5) << endl;   // T1=int, T2=double -> returns int (15)
+//    
+//    int intArr[] = {1, 2, 3, 4, 5};
+//    double doubleArr[] = {1.1, 2.2, 3.3};
+//        
+//    cout << arraySum(intArr, 5) << endl;      // 15
+//    cout << arraySum(doubleArr, 3) << endl;   // 6.6
+//    
+//    int x = 5, y = 10;
+//    double p = 3.14, q = 2.71;
+//    string s1 = "Hello", s2 = "World";
+//        
+//    swapValues(x, y);
+//    swapValues(p, q);
+//    swapValues(s1, s2);
+//        
+//    cout << "x=" << x << ", y=" << y << endl;        // x=10, y=5
+//    cout << "p=" << p << ", q=" << q << endl;        // p=2.71, q=3.14
+//    cout << "s1=" << s1 << ", s2=" << s2 << endl;    // s1=World, s2=Hello
+//    
+//    cout << square(5) << endl;           // 25 (int)
+//    cout << square<double>(2.5) << endl; // 6.25 (double)
+//    cout << square(2.5) << endl;         // 6 (int - uses default!)
+//    
+//    return 0;
+//}
