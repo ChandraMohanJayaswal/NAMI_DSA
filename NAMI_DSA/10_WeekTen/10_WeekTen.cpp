@@ -291,10 +291,10 @@ double division(int a, int b) {
 //    return a + b;
 //}
 
-template<typename T1, typename T2>
-auto sum (T1 a, T2 b) {
-    return a + b;
-}
+//template<typename T1, typename T2>
+//auto sum (T1 a, T2 b) {
+//    return a + b;
+//}
 
 //int main(){
 //    double result = sum(9,10.7);
@@ -303,3 +303,24 @@ auto sum (T1 a, T2 b) {
 //    cout << result << " " << result1 << " " << result3 << endl;
 //    return 0;
 //}
+
+//int sum(int a, int b) {
+//    return a + b;
+//}
+//
+//double sum(double a, double b) {
+//    return a + b;
+//}
+
+template<typename T1, typename T2>
+auto sum(T1 a, T2 b) {
+    return a + b;
+}
+
+int main() {
+    double result1 = sum(10,20.5);
+    int result2 = sum(12.5, 45.8);
+    char result3 = sum('a', 'b');
+    cout << "Result1: " << result1 <<" Result2: " << result2 << " Result3: " << result3 << endl;
+    return 0;
+}
