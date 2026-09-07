@@ -311,3 +311,128 @@ double division(int a, int b) {
 //double sum(double a, double b) {
 //    return a + b;
 //}
+
+
+
+/**
+ 1. Singly Linked List [Circular]
+ 2. Doubly Linked List in C++ [Circular]
+ */
+
+struct UniDirectionalNode {
+    int data;
+    UniDirectionalNode* nextDataAdd;
+};
+
+struct BidirectionalNode {
+    int data;
+    BidirectionalNode* nextDataAdd;
+    BidirectionalNode* previousDataAdd;
+};
+
+void insertAtTheEnd(UniDirectionalNode *currentListNode, UniDirectionalNode *newNode) {
+    /**Move to last data node on the list**/
+    UniDirectionalNode *currentNode = currentListNode;
+    while (currentNode->nextDataAdd != nullptr) {
+        currentNode = currentNode->nextDataAdd;
+    }
+    /**Add data at the end**/
+    currentNode->nextDataAdd = newNode;
+}
+
+void display(UniDirectionalNode *node) {
+    UniDirectionalNode *currentNode = node;
+    while (currentNode != nullptr) {
+        cout << "Data: " << currentNode->data <<endl;
+        currentNode = currentNode->nextDataAdd;
+    }
+}
+
+bool search(UniDirectionalNode *node, int searchData) {
+    UniDirectionalNode *currentNode = node;
+    while (currentNode != nullptr) {
+        int currentData = currentNode->data;
+        if (currentData == searchData) {
+            cout <<"Data found" << endl;
+            return true;
+        }
+        currentNode = currentNode->nextDataAdd;
+    }
+    return false;
+}
+
+int main() {
+//    BidirectionalNode *node1 = new BidirectionalNode(5, nullptr, nullptr);
+//    BidirectionalNode *node2 = new BidirectionalNode(50, nullptr, nullptr);
+//    BidirectionalNode *node3 = new BidirectionalNode(500, nullptr, nullptr);
+//    
+//    node1->previousDataAdd = nullptr;
+//    node1->nextDataAdd = node2;
+//    
+//    node2->previousDataAdd = node1;
+//    node2->nextDataAdd = node3;
+//    
+//    node3->previousDataAdd = node2;
+//    node3->nextDataAdd = nullptr;
+//    node3->nextDataAdd = node1; //Circular
+
+//    NodeV2 *currentHead = node1;
+//    while (currentHead != nullptr) {
+//        cout << currentHead->data << " ";
+//        currentHead = currentHead->nextDataAdd;
+//    }
+    
+    
+    
+    UniDirectionalNode *node1 = new UniDirectionalNode(10, nullptr);
+    UniDirectionalNode *node2 = new UniDirectionalNode(20, nullptr);
+    UniDirectionalNode *node3 = new UniDirectionalNode(30, nullptr);
+    UniDirectionalNode *node4 = new UniDirectionalNode(40, nullptr);
+    node1->nextDataAdd = node2;
+    node2->nextDataAdd = node3;
+    node3->nextDataAdd = node4;
+//    node4->next = node1;//Circular list
+
+    cout <<"Before insertion!" << endl;
+    display(node1);
+
+    UniDirectionalNode *node5 = new UniDirectionalNode(50, nullptr);
+    insertAtTheEnd(node1, node5);
+    cout <<"After insertion!" << endl;
+    display(node1);
+   
+    
+//    bool result = search(node1, 400);
+//    cout <<"Result: " << result << endl;
+
+    return 0;
+}
+
+
+/**
+ 2. Doubly Linked List in C++
+ */
+
+//struct Node {
+//    int data;
+//    Node* prev;
+//    Node* next;
+//};
+//
+//int main() {
+//    Node* head = new Node{10, nullptr, nullptr};
+//    Node* second = new Node{20, head, nullptr};
+//    Node* third = new Node{30, second, nullptr};
+//
+//    head->next = second;
+//    second->next = third;
+//
+//    Node* temp = head;
+//
+//    while (temp != nullptr) {
+//        cout << temp->data << " ";
+//        temp = temp->next;
+//    }
+//
+//    return 0;
+//}
