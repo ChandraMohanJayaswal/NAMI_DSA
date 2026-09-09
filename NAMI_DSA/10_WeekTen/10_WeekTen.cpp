@@ -361,49 +361,131 @@ bool search(UniDirectionalNode *node, int searchData) {
     return false;
 }
 
-int main() {
-//    BidirectionalNode *node1 = new BidirectionalNode(5, nullptr, nullptr);
-//    BidirectionalNode *node2 = new BidirectionalNode(50, nullptr, nullptr);
-//    BidirectionalNode *node3 = new BidirectionalNode(500, nullptr, nullptr);
+//int main() {
+////    BidirectionalNode *node1 = new BidirectionalNode(5, nullptr, nullptr);
+////    BidirectionalNode *node2 = new BidirectionalNode(50, nullptr, nullptr);
+////    BidirectionalNode *node3 = new BidirectionalNode(500, nullptr, nullptr);
+////    
+////    node1->previousDataAdd = nullptr;
+////    node1->nextDataAdd = node2;
+////    
+////    node2->previousDataAdd = node1;
+////    node2->nextDataAdd = node3;
+////    
+////    node3->previousDataAdd = node2;
+////    node3->nextDataAdd = nullptr;
+////    node3->nextDataAdd = node1; //Circular
+//
+////    NodeV2 *currentHead = node1;
+////    while (currentHead != nullptr) {
+////        cout << currentHead->data << " ";
+////        currentHead = currentHead->nextDataAdd;
+////    }
 //    
-//    node1->previousDataAdd = nullptr;
+//    
+//    
+//    UniDirectionalNode *node1 = new UniDirectionalNode(10, nullptr);
+//    UniDirectionalNode *node2 = new UniDirectionalNode(20, nullptr);
+//    UniDirectionalNode *node3 = new UniDirectionalNode(30, nullptr);
+//    UniDirectionalNode *node4 = new UniDirectionalNode(40, nullptr);
 //    node1->nextDataAdd = node2;
-//    
-//    node2->previousDataAdd = node1;
 //    node2->nextDataAdd = node3;
+//    node3->nextDataAdd = node4;
+////    node4->next = node1;//Circular list
+//
+//    cout <<"Before insertion!" << endl;
+//    display(node1);
+//
+//    UniDirectionalNode *node5 = new UniDirectionalNode(50, nullptr);
+//    insertAtTheEnd(node1, node5);
+//    cout <<"After insertion!" << endl;
+//    display(node1);
+//   
 //    
-//    node3->previousDataAdd = node2;
-//    node3->nextDataAdd = nullptr;
-//    node3->nextDataAdd = node1; //Circular
+////    bool result = search(node1, 400);
+////    cout <<"Result: " << result << endl;
+//
+//    return 0;
+//}
 
-//    NodeV2 *currentHead = node1;
-//    while (currentHead != nullptr) {
-//        cout << currentHead->data << " ";
-//        currentHead = currentHead->nextDataAdd;
-//    }
-    
-    
-    
-    UniDirectionalNode *node1 = new UniDirectionalNode(10, nullptr);
-    UniDirectionalNode *node2 = new UniDirectionalNode(20, nullptr);
-    UniDirectionalNode *node3 = new UniDirectionalNode(30, nullptr);
-    UniDirectionalNode *node4 = new UniDirectionalNode(40, nullptr);
-    node1->nextDataAdd = node2;
-    node2->nextDataAdd = node3;
-    node3->nextDataAdd = node4;
-//    node4->next = node1;//Circular list
+struct NodeL5 {
+    int data;
+    NodeL5 *nextAddress;
+};
 
-    cout <<"Before insertion!" << endl;
-    display(node1);
+void displayNodeL5(NodeL5 *headNode){
+    cout <<"List: ";
+    NodeL5 *currentNode = headNode;
+    while (currentNode != nullptr) {
+        cout << currentNode->data << " ";
+        currentNode = currentNode->nextAddress;
+    }
+    cout << endl;
+}
 
-    UniDirectionalNode *node5 = new UniDirectionalNode(50, nullptr);
-    insertAtTheEnd(node1, node5);
-    cout <<"After insertion!" << endl;
-    display(node1);
-   
-    
-//    bool result = search(node1, 400);
-//    cout <<"Result: " << result << endl;
+bool searchNodeL5(NodeL5 *headNode, int searchData) {
+    NodeL5 *currentNode = headNode;
+    while (currentNode != nullptr) {
+        int existingData = currentNode->data;
+        if (existingData == searchData) {
+            cout <<"Data found!" << endl;
+            return true;
+//            break;
+        }
+        currentNode = currentNode->nextAddress;
+    }
+    cout <<"Data not found!" << endl;
+    return false;
+}
 
+void addNodeL5AtEnd(NodeL5 *headNode, NodeL5 *newNode){
+    //Traverse at the last node
+    NodeL5 *currentNode = headNode;
+    while (currentNode->nextAddress != nullptr) {
+        currentNode = currentNode->nextAddress;
+    }
+    //Point last Node's next address to new node
+    currentNode->nextAddress = newNode;
+}
+
+void searchAndAddAfterNodeL5(NodeL5 *headNode, int searchData, NodeL5 *newNode) {
+    NodeL5 *currentNode = headNode;
+    while (currentNode != nullptr) {
+        int existingData = currentNode->data;
+        if (existingData == searchData) {
+            NodeL5 *nextNode = currentNode->nextAddress;
+            if (nextNode != nullptr) { //Add garnu parne bichma
+                currentNode->nextAddress = newNode;
+                newNode->nextAddress = nextNode;
+            } else { // Add garnu parne lastma
+                currentNode->nextAddress = newNode;
+            }
+        }
+        currentNode = currentNode->nextAddress;
+    }
+}
+
+
+int main(){
+    NodeL5 *node1 = new NodeL5(1, nullptr);
+    NodeL5 *node2 = new NodeL5(2, nullptr);
+    NodeL5 *node3 = new NodeL5(3, nullptr);
+    NodeL5 *node4 = new NodeL5(4, nullptr);
+    node1->nextAddress = node2;
+    node2->nextAddress = node3;
+    node3->nextAddress = node4;
+//    node4->nextAddress = node1; //Circular Singly linked list
+    displayNodeL5(node1);
+//    searchNodeL5(node1, 1);
+    NodeL5 *node5 = new NodeL5(5, nullptr);
+    addNodeL5AtEnd(node1, node5);
+    addNodeL5AtEnd(node1, new NodeL5(6, nullptr));
+    addNodeL5AtEnd(node1, new NodeL5(7, nullptr));
+    addNodeL5AtEnd(node1, new NodeL5(8, nullptr));
+    displayNodeL5(node1);
+    searchAndAddAfterNodeL5(node1, 6, new NodeL5(9, nullptr));
+    displayNodeL5(node1);
+    searchAndAddAfterNodeL5(node1, 8, new NodeL5(10, nullptr));
+    displayNodeL5(node1);
     return 0;
 }
