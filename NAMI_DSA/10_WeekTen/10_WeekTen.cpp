@@ -372,30 +372,48 @@ void searchAndAddAfterNode(Node *headNode, int searchData, Node *newNode) {
         currentNode = currentNode->nextAddress;
     }
 }
+void searchAndAddBeforeNode(Node *headNode, int searchData, Node *newNode) {
+    Node *currentNode = headNode;
+    Node *prevousNode = nullptr;
+    while (currentNode != nullptr) {
+        int existingData = currentNode->data;
+        if (existingData == searchData) {
+            if (prevousNode == nullptr) { //Suru ko node
+                newNode->nextAddress = currentNode;
+            } else {
+                prevousNode->nextAddress = newNode;
+                newNode->nextAddress = currentNode;
+            }
+        }
+        prevousNode = currentNode;
+        currentNode = currentNode->nextAddress;
+    }
+}
 
-//int main(){
-//    Node *node1 = new Node(1, nullptr);
-//    Node *node2 = new Node(2, nullptr);
-//    Node *node3 = new Node(3, nullptr);
-//    Node *node4 = new Node(4, nullptr);
-//    node1->nextAddress = node2;
-//    node2->nextAddress = node3;
-//    node3->nextAddress = node4;
-////    node4->nextAddress = node1; //Circular Singly linked list
-//    displayNode(node1);
-////    searchNodeL5(node1, 1);
-//    Node *node5 = new Node(5, nullptr);
-//    addNodeAtEnd(node1, node5);
-//    addNodeAtEnd(node1, new Node(6, nullptr));
-//    addNodeAtEnd(node1, new Node(7, nullptr));
-//    addNodeAtEnd(node1, new Node(8, nullptr));
-//    displayNode(node1);
-//    searchAndAddAfterNode(node1, 6, new Node(9, nullptr));
-//    displayNode(node1);
-//    searchAndAddAfterNode(node1, 8, new Node(10, nullptr));
-//    displayNode(node1);
-//    return 0;
-//}
+
+int main(){
+    Node *node1 = new Node(1, nullptr);
+    Node *node2 = new Node(2, nullptr);
+    Node *node3 = new Node(3, nullptr);
+    Node *node4 = new Node(4, nullptr);
+    node1->nextAddress = node2;
+    node2->nextAddress = node3;
+    node3->nextAddress = node4;
+//    node4->nextAddress = node1; //Circular Singly linked list
+    displayNode(node1);
+//    searchNodeL5(node1, 1);
+    Node *node5 = new Node(5, nullptr);
+    addNodeAtEnd(node1, node5);
+    addNodeAtEnd(node1, new Node(6, nullptr));
+    addNodeAtEnd(node1, new Node(7, nullptr));
+    addNodeAtEnd(node1, new Node(8, nullptr));
+    displayNode(node1);
+    searchAndAddAfterNode(node1, 6, new Node(9, nullptr));
+    displayNode(node1);
+    searchAndAddAfterNode(node1, 8, new Node(10, nullptr));
+    displayNode(node1);
+    return 0;
+}
 
 struct BidirectionalNode {
     int data;
