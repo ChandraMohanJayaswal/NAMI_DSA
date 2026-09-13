@@ -434,7 +434,60 @@ void displayNode(BidirectionalNode *headNode){
     }
     cout << endl;
 }
-
+bool searchNode(BidirectionalNode *headNode, int searchData) {
+    //Need to make sure given node is the first node of list
+    BidirectionalNode *currentNode = headNode;
+    while (currentNode->previousAdd != nullptr) {
+        currentNode = currentNode->previousAdd;
+    }
+    
+    while (currentNode != nullptr) {
+        int existingData = currentNode->data;
+        if (existingData == searchData) {
+            cout <<"Data found!" << endl;
+            return true;
+//            break;
+        }
+        currentNode = currentNode->nextAdd;
+    }
+    cout <<"Data not found!" << endl;
+    return false;
+}
+void addNodeAtEnd(BidirectionalNode *headNode, BidirectionalNode *newNode){
+    //Traverse at the last node
+    BidirectionalNode *currentNode = headNode;
+    while (currentNode->nextAdd != nullptr) {
+        currentNode = currentNode->nextAdd;
+    }
+    //Point last Node's next address to new node
+    currentNode->nextAdd = newNode;
+    
+    newNode->nextAdd = nullptr;
+    newNode->previousAdd = currentNode;
+}
+void searchAndAddAfterNode(BidirectionalNode *headNode, int searchData, BidirectionalNode *newNode) {
+    //Need to make sure given node is the first node of list
+    BidirectionalNode *currentNode = headNode;
+    while (currentNode->previousAdd != nullptr) {
+        currentNode = currentNode->previousAdd;
+    }
+    while (currentNode != nullptr) {
+        int existingData = currentNode->data;
+        if (existingData == searchData) {
+            BidirectionalNode *nextNode = currentNode->nextAdd;
+            if (nextNode != nullptr) { //Add garnu parne bichma
+                currentNode->nextAdd = newNode;
+                newNode->previousAdd = currentNode;
+                newNode->nextAdd = nextNode;
+                nextNode->previousAdd = newNode;
+            } else { // Add garnu parne lastma
+                currentNode->nextAdd = newNode;
+                newNode->previousAdd = currentNode;
+            }
+        }
+        currentNode = currentNode->nextAdd;
+    }
+}
 
 int main() {
     BidirectionalNode *node1 = new BidirectionalNode(5, nullptr, nullptr);
@@ -456,5 +509,10 @@ int main() {
 //    node3->nextAdd = node1; //Circular
     
     displayNode(node2);
+    addNodeAtEnd(node1, new BidirectionalNode(5000, nullptr, nullptr));
+    displayNode(node2);
+    searchAndAddAfterNode(node2,5, new BidirectionalNode(50000, nullptr, nullptr));
+    displayNode(node2);
+
     return 0;
 }
