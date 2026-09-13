@@ -391,29 +391,29 @@ void searchAndAddBeforeNode(Node *headNode, int searchData, Node *newNode) {
 }
 
 
-int main(){
-    Node *node1 = new Node(1, nullptr);
-    Node *node2 = new Node(2, nullptr);
-    Node *node3 = new Node(3, nullptr);
-    Node *node4 = new Node(4, nullptr);
-    node1->nextAddress = node2;
-    node2->nextAddress = node3;
-    node3->nextAddress = node4;
-//    node4->nextAddress = node1; //Circular Singly linked list
-    displayNode(node1);
-//    searchNodeL5(node1, 1);
-    Node *node5 = new Node(5, nullptr);
-    addNodeAtEnd(node1, node5);
-    addNodeAtEnd(node1, new Node(6, nullptr));
-    addNodeAtEnd(node1, new Node(7, nullptr));
-    addNodeAtEnd(node1, new Node(8, nullptr));
-    displayNode(node1);
-    searchAndAddAfterNode(node1, 6, new Node(9, nullptr));
-    displayNode(node1);
-    searchAndAddAfterNode(node1, 8, new Node(10, nullptr));
-    displayNode(node1);
-    return 0;
-}
+//int main(){
+//    Node *node1 = new Node(1, nullptr);
+//    Node *node2 = new Node(2, nullptr);
+//    Node *node3 = new Node(3, nullptr);
+//    Node *node4 = new Node(4, nullptr);
+//    node1->nextAddress = node2;
+//    node2->nextAddress = node3;
+//    node3->nextAddress = node4;
+////    node4->nextAddress = node1; //Circular Singly linked list
+//    displayNode(node1);
+////    searchNodeL5(node1, 1);
+//    Node *node5 = new Node(5, nullptr);
+//    addNodeAtEnd(node1, node5);
+//    addNodeAtEnd(node1, new Node(6, nullptr));
+//    addNodeAtEnd(node1, new Node(7, nullptr));
+//    addNodeAtEnd(node1, new Node(8, nullptr));
+//    displayNode(node1);
+//    searchAndAddAfterNode(node1, 6, new Node(9, nullptr));
+//    displayNode(node1);
+//    searchAndAddAfterNode(node1, 8, new Node(10, nullptr));
+//    displayNode(node1);
+//    return 0;
+//}
 
 struct BidirectionalNode {
     int data;
@@ -421,19 +421,40 @@ struct BidirectionalNode {
     BidirectionalNode* previousAdd;
 };
 
-//int main() {
-//    BidirectionalNode *node1 = new BidirectionalNode(5, nullptr, nullptr);
-//    BidirectionalNode *node2 = new BidirectionalNode(50, nullptr, nullptr);
-//    BidirectionalNode *node3 = new BidirectionalNode(500, nullptr, nullptr);
-//    
-//    node1->previousAdd = nullptr;
-//    node1->nextAdd = node2;
-//    
-//    node2->previousAdd = node1;
-//    node2->nextAdd = node3;
-//    
-//    node3->previousAdd = node2;
-//    node3->nextAdd = nullptr;
+void displayNode(BidirectionalNode *headNode){
+    //Need to make sure given node is the first node of list
+    BidirectionalNode *currentNode = headNode;
+    while (currentNode->previousAdd != nullptr) {
+        currentNode = currentNode->previousAdd;
+    }
+    cout <<"List: ";
+    while (currentNode != nullptr) {
+        cout << currentNode->data << " ";
+        currentNode = currentNode->nextAdd;
+    }
+    cout << endl;
+}
+
+
+int main() {
+    BidirectionalNode *node1 = new BidirectionalNode(5, nullptr, nullptr);
+    BidirectionalNode *node2 = new BidirectionalNode(50, nullptr, nullptr);
+    BidirectionalNode *node3 = new BidirectionalNode(500, nullptr, nullptr);
+    
+//    node1->previousAdd = node3; //Circular
+
+    node1->previousAdd = nullptr;
+    node1->nextAdd = node2;
+    
+    node2->previousAdd = node1;
+    node2->nextAdd = node3;
+    
+    node3->previousAdd = node2;
+    node3->nextAdd = nullptr;
+    
+    node3->previousAdd = node2;
 //    node3->nextAdd = node1; //Circular
-//    return 0;
-//}
+    
+    displayNode(node2);
+    return 0;
+}
