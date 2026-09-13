@@ -9,26 +9,26 @@
 #include <string>
 using namespace std;
 
-struct StackNode {
+struct MyStack {
     int data;
-    StackNode *nextAddress;
-    StackNode (int data, StackNode *nextAddress) {
+    MyStack *nextAddress;
+    MyStack (int data, MyStack *nextAddress) {
         this->data = data;
         this->nextAddress = nextAddress;
     }
-    void push(StackNode *newNode) {
+    void push(MyStack *newNode) {
         //Need to move at the end
-        StackNode *currentNode = this;
+        MyStack *currentNode = this;
         while (currentNode->nextAddress != nullptr) {
             currentNode = currentNode->nextAddress;
         }
         //Add new node at the end
         currentNode->nextAddress = newNode;
     }
-    StackNode* pop() {
+    MyStack* pop() {
         //Need to move at the end
-        StackNode *previousNode = nullptr;
-        StackNode *currentNode = this;
+        MyStack *previousNode = nullptr;
+        MyStack *currentNode = this;
         while (currentNode->nextAddress != nullptr) {
             previousNode = currentNode;
             currentNode = currentNode->nextAddress;
@@ -38,24 +38,36 @@ struct StackNode {
     }
     void display(){
         cout <<"List: ";
-        StackNode *currentNode = this;
+        MyStack *currentNode = this;
         while (currentNode != nullptr) {
             cout << currentNode->data << " ";
             currentNode = currentNode->nextAddress;
         }
         cout << endl;
     }
+    
+    int size() {
+        int counter = 0;
+        MyStack *currentNode = this;
+        while (currentNode != nullptr) {
+            ++counter;
+            currentNode = currentNode->nextAddress;
+        }
+        return counter;
+    }
 };
 
 int main() {
-    StackNode *node1 = new StackNode(10, nullptr);
-    node1->push(new StackNode(20, nullptr));
-    node1->push(new StackNode(30, nullptr));
-    node1->push(new StackNode(40, nullptr));
-    node1->display();
-    StackNode *node = node1->pop();
+    MyStack *myStack = new MyStack(10, nullptr);
+    myStack->push(new MyStack(20, nullptr));
+    myStack->push(new MyStack(30, nullptr));
+    myStack->push(new MyStack(40, nullptr));
+    myStack->display();
+    MyStack *node = myStack->pop();
     cout <<"Poped Data: " << node->data << endl;
-    node1->display();
+    myStack->display();
+
+    cout <<"Size: " << myStack->size() << endl;
 
     return 0;
 }
