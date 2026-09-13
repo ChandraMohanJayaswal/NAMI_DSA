@@ -489,30 +489,30 @@ void searchAndAddAfterNode(BidirectionalNode *headNode, int searchData, Bidirect
     }
 }
 
-int main() {
-    BidirectionalNode *node1 = new BidirectionalNode(5, nullptr, nullptr);
-    BidirectionalNode *node2 = new BidirectionalNode(50, nullptr, nullptr);
-    BidirectionalNode *node3 = new BidirectionalNode(500, nullptr, nullptr);
-    
-//    node1->previousAdd = node3; //Circular
-
-    node1->previousAdd = nullptr;
-    node1->nextAdd = node2;
-    
-    node2->previousAdd = node1;
-    node2->nextAdd = node3;
-    
-    node3->previousAdd = node2;
-    node3->nextAdd = nullptr;
-    
-    node3->previousAdd = node2;
-//    node3->nextAdd = node1; //Circular
-    
-    displayNode(node2);
-    addNodeAtEnd(node1, new BidirectionalNode(5000, nullptr, nullptr));
-    displayNode(node2);
-    searchAndAddAfterNode(node2,5, new BidirectionalNode(50000, nullptr, nullptr));
-    displayNode(node2);
-
-    return 0;
-}
+//int main() {
+//    BidirectionalNode *node1 = new BidirectionalNode(5, nullptr, nullptr);
+//    BidirectionalNode *node2 = new BidirectionalNode(50, nullptr, nullptr);
+//    BidirectionalNode *node3 = new BidirectionalNode(500, nullptr, nullptr);
+//    
+////    node1->previousAdd = node3; //Circular
+//
+//    node1->previousAdd = nullptr;
+//    node1->nextAdd = node2;
+//    
+//    node2->previousAdd = node1;
+//    node2->nextAdd = node3;
+//    
+//    node3->previousAdd = node2;
+//    node3->nextAdd = nullptr;
+//    
+//    node3->previousAdd = node2;
+////    node3->nextAdd = node1; //Circular
+//    
+//    displayNode(node2);
+//    addNodeAtEnd(node1, new BidirectionalNode(5000, nullptr, nullptr));
+//    displayNode(node2);
+//    searchAndAddAfterNode(node2,5, new BidirectionalNode(50000, nullptr, nullptr));
+//    displayNode(node2);
+//
+//    return 0;
+//}
