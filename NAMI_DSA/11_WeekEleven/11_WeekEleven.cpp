@@ -69,11 +69,11 @@ struct MyStack {
     
     void display() {
         if (isEmpty) {
-            cout << "List: " << endl;
+            cout << "Stack List: " << endl;
             return;
         }
         
-        cout << "List: ";
+        cout << "Stack List: ";
         MyStack *currentNode = this;
         while (currentNode != nullptr) {
             cout << currentNode->data << " ";
@@ -96,24 +96,6 @@ struct MyStack {
         return counter;
     }
 };
-
-//int main() {
-//    MyStack *myStack = new MyStack(10);
-////    MyStack *myStack = new MyStack();
-//
-////    myStack->push(20);
-////    myStack->push(30);
-////    myStack->push(40);
-//    myStack->display();
-//    cout <<"Stack Size: " << myStack->size() << endl;
-//    int data = myStack->pop();
-//    cout <<"Poped Data: " << data << endl;
-//    myStack->display();
-//    cout <<"Stack Size: " << myStack->size() << endl;
-//
-//    return 0;
-//}
-
 
 struct MyQueue {
     int data;
@@ -174,11 +156,11 @@ struct MyQueue {
     }
     void display() {
         if (isEmpty) {
-            cout << "List: " << endl;
+            cout << "Queue List: " << endl;
             return;
         }
         
-        cout << "List: ";
+        cout << "Queue List: ";
         MyQueue *currentNode = this;
         while (currentNode != nullptr) {
             cout << currentNode->data << " ";
@@ -186,11 +168,34 @@ struct MyQueue {
         }
         cout << endl;
     }
+    
+    int size() {
+        if (isEmpty) {
+            return 0;
+        }
+        
+        int counter = 0;
+        MyQueue *currentNode = this;
+        while (currentNode != nullptr) {
+            ++counter;
+            currentNode = currentNode->nextAddress;
+        }
+        return counter;
+    }
 
 };
 
 
 int main() {
+    MyStack *myStack = new MyStack(10);
+    myStack->push(20);
+    myStack->push(30);
+    myStack->display();
+    myStack->pop();
+    myStack->display();
+    myStack->pop();
+    myStack->display();
+    
     MyQueue *myQueue = new MyQueue(10);
     myQueue->push(20);
     myQueue->push(30);
