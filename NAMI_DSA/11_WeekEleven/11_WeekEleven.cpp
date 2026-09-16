@@ -97,19 +97,38 @@ struct MyStack {
     }
 };
 
-int main() {
-    MyStack *myStack = new MyStack(10);
-//    MyStack *myStack = new MyStack();
+struct MyQueue{
+    int data;
+    MyQueue *nextAddress;
+    bool isEmpty;  // Flag to indicate if this is an empty queue
+    
+    MyQueue(int data) {
+        this->data = data;
+        this->nextAddress = nullptr;
+        this->isEmpty = false;
+    }
+    
+    MyQueue() {  // Default constructor for empty queue
+        this->data = 0;
+        this->nextAddress = nullptr;
+        this->isEmpty = true;
+    }
+    
+};
 
-//    myStack->push(20);
-//    myStack->push(30);
-//    myStack->push(40);
-    myStack->display();
-    cout <<"Stack Size: " << myStack->size() << endl;
-    int data = myStack->pop();
-    cout <<"Poped Data: " << data << endl;
-    myStack->display();
-    cout <<"Stack Size: " << myStack->size() << endl;
-
-    return 0;
-}
+//int main() {
+//    MyStack *myStack = new MyStack(10);
+////    MyStack *myStack = new MyStack();
+//
+////    myStack->push(20);
+////    myStack->push(30);
+////    myStack->push(40);
+//    myStack->display();
+//    cout <<"Stack Size: " << myStack->size() << endl;
+//    int data = myStack->pop();
+//    cout <<"Poped Data: " << data << endl;
+//    myStack->display();
+//    cout <<"Stack Size: " << myStack->size() << endl;
+//
+//    return 0;
+//}
