@@ -97,6 +97,24 @@ struct MyStack {
     }
 };
 
+//int main() {
+//    MyStack *myStack = new MyStack(10);
+////    MyStack *myStack = new MyStack();
+//
+////    myStack->push(20);
+////    myStack->push(30);
+////    myStack->push(40);
+//    myStack->display();
+//    cout <<"Stack Size: " << myStack->size() << endl;
+//    int data = myStack->pop();
+//    cout <<"Poped Data: " << data << endl;
+//    myStack->display();
+//    cout <<"Stack Size: " << myStack->size() << endl;
+//
+//    return 0;
+//}
+
+
 struct MyQueue{
     int data;
     MyQueue *nextAddress;
@@ -139,23 +157,5 @@ struct MyQueue{
         delete currentNode;
         return data;
     }
-
-    
 };
 
-//int main() {
-//    MyStack *myStack = new MyStack(10);
-////    MyStack *myStack = new MyStack();
-//
-////    myStack->push(20);
-////    myStack->push(30);
-////    myStack->push(40);
-//    myStack->display();
-//    cout <<"Stack Size: " << myStack->size() << endl;
-//    int data = myStack->pop();
-//    cout <<"Poped Data: " << data << endl;
-//    myStack->display();
-//    cout <<"Stack Size: " << myStack->size() << endl;
-//
-//    return 0;
-//}
