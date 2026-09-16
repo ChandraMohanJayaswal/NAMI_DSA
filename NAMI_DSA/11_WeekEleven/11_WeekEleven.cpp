@@ -115,10 +115,10 @@ struct MyStack {
 //}
 
 
-struct MyQueue{
+struct MyQueue {
     int data;
     MyQueue *nextAddress;
-    bool isEmpty;  // Flag to indicate if this is an empty queue
+    bool isEmpty;
     
     MyQueue(int data) {
         this->data = data;
@@ -126,15 +126,32 @@ struct MyQueue{
         this->isEmpty = false;
     }
     
-    MyQueue() {  // Default constructor for empty queue
+    MyQueue() {
         this->data = 0;
         this->nextAddress = nullptr;
         this->isEmpty = true;
     }
     
+    // ENQUEUE - add at the rear (end)
+    void push(int data) {
+        if (isEmpty) {
+            this->data = data;
+            isEmpty = false;
+            return;
+        }
+        
+        MyQueue *newNode = new MyQueue(data);
+        MyQueue *currentNode = this;
+        while (currentNode->nextAddress != nullptr) {
+            currentNode = currentNode->nextAddress;
+        }
+        currentNode->nextAddress = newNode;
+    }
+    
+    // DEQUEUE - remove from the front (beginning)
     int pop() {
         if (isEmpty) {
-            return -1;  // Stack is empty
+            return -1;
         }
         
         // If only one element
@@ -144,17 +161,15 @@ struct MyQueue{
             return data;
         }
         
-        // More than one element
-        MyQueue *previousNode = nullptr;
-        MyQueue *currentNode = this;
-        while (currentNode->nextAddress != nullptr) {
-            previousNode = currentNode;
-            currentNode = currentNode->nextAddress;
-        }
+        // More than one element — remove from FRONT
+        int data = this->data;
+        MyQueue *temp = nextAddress;
         
-        int data = currentNode->data;
-        previousNode->nextAddress = nullptr;
-        delete currentNode;
+        // Copy next node's data and pointer into this node
+        this->data = temp->data;
+        this->nextAddress = temp->nextAddress;
+        delete temp;
+        
         return data;
     }
 };
