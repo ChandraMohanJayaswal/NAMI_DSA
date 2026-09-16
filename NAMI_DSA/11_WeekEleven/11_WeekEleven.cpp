@@ -114,6 +114,33 @@ struct MyQueue{
         this->isEmpty = true;
     }
     
+    int pop() {
+        if (isEmpty) {
+            return -1;  // Stack is empty
+        }
+        
+        // If only one element
+        if (nextAddress == nullptr) {
+            int data = this->data;
+            isEmpty = true;
+            return data;
+        }
+        
+        // More than one element
+        MyQueue *previousNode = nullptr;
+        MyQueue *currentNode = this;
+        while (currentNode->nextAddress != nullptr) {
+            previousNode = currentNode;
+            currentNode = currentNode->nextAddress;
+        }
+        
+        int data = currentNode->data;
+        previousNode->nextAddress = nullptr;
+        delete currentNode;
+        return data;
+    }
+
+    
 };
 
 //int main() {
