@@ -12,11 +12,14 @@ using namespace std;
 struct MyStack {
     int data;
     MyStack *nextAddress;
-    MyStack (int data, MyStack *nextAddress) {
+    
+    MyStack (int data) {
         this->data = data;
-        this->nextAddress = nextAddress;
+        this->nextAddress = nullptr;
     }
-    void push(MyStack *newNode) {
+    
+    void push(int data) {
+        MyStack *newNode = new MyStack(data);
         //Need to move at the end
         MyStack *currentNode = this;
         while (currentNode->nextAddress != nullptr) {
@@ -25,7 +28,7 @@ struct MyStack {
         //Add new node at the end
         currentNode->nextAddress = newNode;
     }
-    MyStack* pop() {
+    int pop() {
         //Need to move at the end
         MyStack *previousNode = nullptr;
         MyStack *currentNode = this;
@@ -34,7 +37,7 @@ struct MyStack {
             currentNode = currentNode->nextAddress;
         }
         previousNode->nextAddress = nullptr;
-        return currentNode;
+        return currentNode->data;
     }
     void display(){
         cout <<"List: ";
@@ -58,13 +61,13 @@ struct MyStack {
 };
 
 int main() {
-    MyStack *myStack = new MyStack(10, nullptr);
-    myStack->push(new MyStack(20, nullptr));
-    myStack->push(new MyStack(30, nullptr));
-    myStack->push(new MyStack(40, nullptr));
+    MyStack *myStack = new MyStack(10);
+    myStack->push(20);
+    myStack->push(30);
+    myStack->push(40);
     myStack->display();
-    MyStack *node = myStack->pop();
-    cout <<"Poped Data: " << node->data << endl;
+    int data = myStack->pop();
+    cout <<"Poped Data: " << data << endl;
     myStack->display();
 
     cout <<"Size: " << myStack->size() << endl;
