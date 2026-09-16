@@ -36,7 +36,10 @@ struct MyStack {
             previousNode = currentNode;
             currentNode = currentNode->nextAddress;
         }
-        previousNode->nextAddress = nullptr;
+        if (previousNode != nullptr) {
+            //If at least one data is in stack
+            previousNode->nextAddress = nullptr;
+        }
         return currentNode->data;
     }
     void display(){
@@ -62,9 +65,9 @@ struct MyStack {
 
 int main() {
     MyStack *myStack = new MyStack(10);
-    myStack->push(20);
-    myStack->push(30);
-    myStack->push(40);
+//    myStack->push(20);
+//    myStack->push(30);
+//    myStack->push(40);
     myStack->display();
     int data = myStack->pop();
     cout <<"Poped Data: " << data << endl;
