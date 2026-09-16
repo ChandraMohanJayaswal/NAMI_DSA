@@ -95,6 +95,10 @@ struct MyStack {
         }
         return counter;
     }
+    
+    ~MyStack(){
+        delete nextAddress;
+    }
 };
 
 struct MyQueue {
@@ -183,6 +187,9 @@ struct MyQueue {
         return counter;
     }
 
+    ~MyQueue(){
+        delete nextAddress;
+    }
 };
 
 
@@ -196,6 +203,8 @@ int main() {
     myStack->pop();
     myStack->display();
     
+    delete myStack;
+    
     MyQueue *myQueue = new MyQueue(10);
     myQueue->push(20);
     myQueue->push(30);
@@ -204,6 +213,8 @@ int main() {
     myQueue->display();
     myQueue->pop();
     myQueue->display();
+    
+    delete myQueue;
     return 0;
 }
 
