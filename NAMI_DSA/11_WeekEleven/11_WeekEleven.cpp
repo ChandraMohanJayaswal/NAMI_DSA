@@ -172,5 +172,33 @@ struct MyQueue {
         
         return data;
     }
+    void display() {
+        if (isEmpty) {
+            cout << "List: " << endl;
+            return;
+        }
+        
+        cout << "List: ";
+        MyQueue *currentNode = this;
+        while (currentNode != nullptr) {
+            cout << currentNode->data << " ";
+            currentNode = currentNode->nextAddress;
+        }
+        cout << endl;
+    }
+
 };
+
+
+int main() {
+    MyQueue *myQueue = new MyQueue(10);
+    myQueue->push(20);
+    myQueue->push(30);
+    myQueue->display();
+    myQueue->pop();
+    myQueue->display();
+    myQueue->pop();
+    myQueue->display();
+    return 0;
+}
 
