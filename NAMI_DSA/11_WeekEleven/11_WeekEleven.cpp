@@ -47,7 +47,7 @@ struct MyStack {
         }
         
         // If only one element
-        if (nextAddress == nullptr) {
+        if (this->nextAddress == nullptr) {
             int data = this->data;
             isEmpty = true;
             return data;
@@ -63,13 +63,12 @@ struct MyStack {
         
         int data = currentNode->data;
         previousNode->nextAddress = nullptr;
-        delete currentNode;
         return data;
     }
     
     void display() {
         if (isEmpty) {
-            cout << "Stack List: " << endl;
+            cout << "Stack List Empty " << endl;
             return;
         }
         
@@ -192,7 +191,6 @@ struct MyQueue {
     }
 };
 
-
 int main() {
     MyStack *myStack = new MyStack(10);
     myStack->push(20);
@@ -202,19 +200,21 @@ int main() {
     myStack->display();
     myStack->pop();
     myStack->display();
+    myStack->pop();
+    myStack->display();
     
     delete myStack;
     
-    MyQueue *myQueue = new MyQueue(10);
-    myQueue->push(20);
-    myQueue->push(30);
-    myQueue->display();
-    myQueue->pop();
-    myQueue->display();
-    myQueue->pop();
-    myQueue->display();
-    
-    delete myQueue;
+//    MyQueue *myQueue = new MyQueue(10);
+//    myQueue->push(20);
+//    myQueue->push(30);
+//    myQueue->display();
+//    myQueue->pop();
+//    myQueue->display();
+//    myQueue->pop();
+//    myQueue->display();
+//    
+//    delete myQueue;
     return 0;
 }
 
