@@ -96,7 +96,7 @@ struct MyStack {
     }
     
     ~MyStack(){
-        delete nextAddress;
+
     }
 };
 
@@ -153,7 +153,6 @@ struct MyQueue {
         // Copy next node's data and pointer into this node
         this->data = temp->data;
         this->nextAddress = temp->nextAddress;
-        delete temp;
         
         return data;
     }
@@ -187,7 +186,7 @@ struct MyQueue {
     }
 
     ~MyQueue(){
-        delete nextAddress;
+
     }
 };
 
@@ -205,16 +204,16 @@ int main() {
     
     delete myStack;
     
-//    MyQueue *myQueue = new MyQueue(10);
-//    myQueue->push(20);
-//    myQueue->push(30);
-//    myQueue->display();
-//    myQueue->pop();
-//    myQueue->display();
-//    myQueue->pop();
-//    myQueue->display();
-//    
-//    delete myQueue;
+    MyQueue *myQueue = new MyQueue(10);
+    myQueue->push(20);
+    myQueue->push(30);
+    myQueue->display();
+    myQueue->pop();
+    myQueue->display();
+    myQueue->pop();
+    myQueue->display();
+    
+    delete myQueue;
     return 0;
 }
 
