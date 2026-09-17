@@ -212,6 +212,8 @@ int main() {
     myQueue->display();
     myQueue->pop();
     myQueue->display();
+    myQueue->pop();
+    myQueue->display();
     
     delete myQueue;
     return 0;
