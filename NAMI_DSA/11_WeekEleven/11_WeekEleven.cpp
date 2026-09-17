@@ -158,7 +158,7 @@ struct MyQueue {
     }
     void display() {
         if (isEmpty) {
-            cout << "Queue List: " << endl;
+            cout << "Queue List Empty " << endl;
             return;
         }
         
