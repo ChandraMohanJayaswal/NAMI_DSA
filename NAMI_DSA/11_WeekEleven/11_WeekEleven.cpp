@@ -236,23 +236,64 @@ struct MyBinaryTree {
         leftNode = nullptr;
         rightNode = nullptr;
     }
+    
+    void displayInOrder() {
+        if (leftNode != nullptr) {
+            leftNode->displayInOrder();
+        }
+        cout << data << " ";
+        if (rightNode != nullptr) {
+            rightNode->displayInOrder();
+        }
+    }
+    
+    void displayPreOrder() {
+        cout << data << " ";
+        if (leftNode != nullptr) {
+            leftNode->displayPreOrder();
+        }
+        if (rightNode != nullptr) {
+            rightNode->displayPreOrder();
+        }
+    }
+    
+    void displayPostOrder() {
+        if (leftNode != nullptr) {
+            leftNode->displayPostOrder();
+        }
+        if (rightNode != nullptr) {
+            rightNode->displayPostOrder();
+        }
+        cout << data << " ";
+    }
 };
 
 
 int main() {
-    MyBinaryTree<int> *binaryTree = new MyBinaryTree(10);
+    MyBinaryTree<int> *binaryTree = new MyBinaryTree(20);
     
-    MyBinaryTree<int> *node1 = new MyBinaryTree(20);
-    MyBinaryTree<int> *node2 = new MyBinaryTree(30);
-    MyBinaryTree<int> *node3 = new MyBinaryTree(5);
-    MyBinaryTree<int> *node4 = new MyBinaryTree(3);
-    MyBinaryTree<int> *node5 = new MyBinaryTree(2);
+    MyBinaryTree<int> *node18 = new MyBinaryTree(18);
+    MyBinaryTree<int> *node16 = new MyBinaryTree(16);
+    MyBinaryTree<int> *node19 = new MyBinaryTree(19);
+    MyBinaryTree<int> *node25 = new MyBinaryTree(25);
+    MyBinaryTree<int> *node23 = new MyBinaryTree(23);
+    MyBinaryTree<int> *node26 = new MyBinaryTree(26);
+
+    binaryTree->leftNode = node18;
+    node18->leftNode = node16;
+    node18->rightNode = node19;
+    binaryTree->rightNode = node25;
+    node25->leftNode = node23;
+    node25->rightNode = node26;
     
-    binaryTree->rightNode = node1;
-    node1->rightNode = node2;
-    binaryTree->leftNode = node3;
-    node3->leftNode = node4;
-    node4->leftNode = node5;
+    cout <<endl  << "In Order: " << endl;
+    binaryTree->displayInOrder();
+    
+    cout <<endl << "Pre Order: " << endl;
+    binaryTree->displayPreOrder();
+    
+    cout <<endl << "Post Order: " << endl;
+    binaryTree->displayPostOrder();
     
     
     return 0;
