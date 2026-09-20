@@ -237,15 +237,103 @@ struct MyBinaryTree {
         rightNode = nullptr;
     }
     
-    int size() {
+    int nodeSize() {
         int count = 1;  // count this node
         if (leftNode != nullptr) {
-            count += leftNode->size();
+            count += leftNode->nodeSize();
         }
         if (rightNode != nullptr) {
-            count += rightNode->size();
+            count += rightNode->nodeSize();
         }
         return count;
+    }
+    
+    int leafNodeSize() {
+        // If this node has no children, it's a leaf node
+        if (leftNode == nullptr && rightNode == nullptr) {
+            return 1;
+        }
+        
+        int count = 0;
+        if (leftNode != nullptr) {
+            count += leftNode->leafNodeSize();
+        }
+        if (rightNode != nullptr) {
+            count += rightNode->leafNodeSize();
+        }
+        return count;
+    }
+    
+    /**
+     Recursively compute the height of the left and right subtrees.
+     Take the maximum of the two heights.
+     Add 1 to account for the current node (the edge connecting to its tallest subtree).
+     */
+    int height() {
+        int leftHeight = 0;
+        int rightHeight = 0;
+        
+        if (leftNode != nullptr) {
+            leftHeight = leftNode->height();
+        }
+        if (rightNode != nullptr) {
+            rightHeight = rightNode->height();
+        }
+        
+        return 1 + max(leftHeight, rightHeight);
+    }
+    
+    /**
+     Use BFS (level-order traversal) with a queue.
+     At each level, q.size() tells us exactly how many nodes are on that level.
+     Track the maximum level size seen so far.
+     Process only the nodes currently on that level before moving on, so the queue contains exactly the next level's nodes at the start of the next iteration.
+     */
+    
+    int width() {
+        if (this == nullptr) return 0;
+        
+        // Queue for level-order traversal (BFS)
+        queue<const MyBinaryTree*> q;
+        q.push(this);
+        
+        int maxWidth = 0;
+        
+        while (!q.empty()) {
+            int levelSize = q.size();          // number of nodes at current level
+            maxWidth = std::max(maxWidth, levelSize);
+            
+            // Process all nodes at the current level
+            for (int i = 0; i < levelSize; i++) {
+                const MyBinaryTree* current = q.front();
+                q.pop();
+                
+                if (current->leftNode  != nullptr) q.push(current->leftNode);
+                if (current->rightNode != nullptr) q.push(current->rightNode);
+            }
+        }
+        
+        return maxWidth;
+    }
+    
+    /**
+     Swap the pointers leftNode and rightNode for the current node.
+     Recurse into both children to swap their subtrees as well.
+     */
+    void swapSubtrees() {
+        // Swap the left and right children of this node
+        MyBinaryTree* temp = leftNode;
+        leftNode = rightNode;
+        rightNode = temp;
+        
+        // Recursively swap in the left subtree (which was the right)
+        if (leftNode != nullptr) {
+            leftNode->swapSubtrees();
+        }
+        // Recursively swap in the right subtree (which was the left)
+        if (rightNode != nullptr) {
+            rightNode->swapSubtrees();
+        }
     }
     
     void displayInOrder() {
@@ -277,6 +365,76 @@ struct MyBinaryTree {
         }
         cout << data << " ";
     }
+    
+    void displayInOrderIterative() {
+        stack<MyBinaryTree*> s;
+        MyBinaryTree* current = this;
+        
+        while (current != nullptr || !s.empty()) {
+            // Go as far left as possible
+            while (current != nullptr) {
+                s.push(current);
+                current = current->leftNode;
+            }
+            
+            // Visit the node
+            current = s.top();
+            s.pop();
+            std::cout << current->data << " ";
+            
+            // Move to the right subtree
+            current = current->rightNode;
+        }
+    }
+    
+    void displayPreOrderIterative() {
+        if (this == nullptr) return;
+        
+        stack<MyBinaryTree*> s;
+        s.push(this);
+        
+        while (!s.empty()) {
+            MyBinaryTree* current = s.top();
+            s.pop();
+            
+            std::cout << current->data << " ";
+            
+            // Push RIGHT first, then LEFT
+            // (so LEFT is processed first — stack is LIFO)
+            if (current->rightNode != nullptr) {
+                s.push(current->rightNode);
+            }
+            if (current->leftNode != nullptr) {
+                s.push(current->leftNode);
+            }
+        }
+    }
+    
+    void displayPostOrderIterative() {
+        stack<MyBinaryTree*> s;
+        MyBinaryTree* current = this;
+        MyBinaryTree* lastVisited = nullptr;
+        
+        while (current != nullptr || !s.empty()) {
+            // Go as far left as possible
+            while (current != nullptr) {
+                s.push(current);
+                current = current->leftNode;
+            }
+            
+            MyBinaryTree* peekNode = s.top();
+            
+            // If right child exists and hasn't been visited yet, go right
+            if (peekNode->rightNode != nullptr && lastVisited != peekNode->rightNode) {
+                current = peekNode->rightNode;
+            } else {
+                // Both subtrees done — visit this node
+                std::cout << peekNode->data << " ";
+                lastVisited = peekNode;
+                s.pop();
+            }
+        }
+    }
 };
 
 
@@ -306,7 +464,7 @@ int main() {
     cout <<endl << "Post Order: " << endl;
     binaryTree->displayPostOrder();
     
-    cout <<endl << "Size : "<< binaryTree->size() << endl;
+    cout <<endl << "Size : "<< binaryTree->nodeSize() << endl;
 
     
     return 0;
