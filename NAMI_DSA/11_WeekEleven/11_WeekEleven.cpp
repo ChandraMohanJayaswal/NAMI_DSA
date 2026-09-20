@@ -380,7 +380,7 @@ struct MyBinaryTree {
             // Visit the node
             current = s.top();
             s.pop();
-            std::cout << current->data << " ";
+            cout << current->data << " ";
             
             // Move to the right subtree
             current = current->rightNode;
@@ -397,7 +397,7 @@ struct MyBinaryTree {
             MyBinaryTree* current = s.top();
             s.pop();
             
-            std::cout << current->data << " ";
+            cout << current->data << " ";
             
             // Push RIGHT first, then LEFT
             // (so LEFT is processed first — stack is LIFO)
@@ -429,7 +429,7 @@ struct MyBinaryTree {
                 current = peekNode->rightNode;
             } else {
                 // Both subtrees done — visit this node
-                std::cout << peekNode->data << " ";
+                cout << peekNode->data << " ";
                 lastVisited = peekNode;
                 s.pop();
             }
