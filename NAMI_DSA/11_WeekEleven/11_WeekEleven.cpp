@@ -190,32 +190,70 @@ struct MyQueue {
     }
 };
 
+//int main() {
+//    MyStack *myStack = new MyStack(10);
+//    myStack->push(20);
+//    myStack->push(30);
+//    myStack->display();
+//    myStack->pop();
+//    myStack->display();
+//    myStack->pop();
+//    myStack->display();
+//    myStack->pop();
+//    myStack->display();
+//    
+//    delete myStack;
+//    
+//    MyQueue *myQueue = new MyQueue(10);
+//    myQueue->push(20);
+//    myQueue->push(30);
+//    myQueue->display();
+//    myQueue->pop();
+//    myQueue->display();
+//    myQueue->pop();
+//    myQueue->display();
+//    myQueue->pop();
+//    myQueue->display();
+//    
+//    delete myQueue;
+//    return 0;
+//}
+
+template <typename T>
+struct MyBinaryTree {
+    T data;
+    MyBinaryTree *leftNode;
+    MyBinaryTree *rightNode;
+    
+    MyBinaryTree() {
+        data = -1;
+        leftNode = nullptr;
+        rightNode = nullptr;
+    }
+    
+    MyBinaryTree(T data){
+        this->data = data;
+        leftNode = nullptr;
+        rightNode = nullptr;
+    }
+};
+
+
 int main() {
-    MyStack *myStack = new MyStack(10);
-    myStack->push(20);
-    myStack->push(30);
-    myStack->display();
-    myStack->pop();
-    myStack->display();
-    myStack->pop();
-    myStack->display();
-    myStack->pop();
-    myStack->display();
+    MyBinaryTree<int> *binaryTree = new MyBinaryTree(10);
     
-    delete myStack;
+    MyBinaryTree<int> *node1 = new MyBinaryTree(20);
+    MyBinaryTree<int> *node2 = new MyBinaryTree(30);
+    MyBinaryTree<int> *node3 = new MyBinaryTree(5);
+    MyBinaryTree<int> *node4 = new MyBinaryTree(3);
+    MyBinaryTree<int> *node5 = new MyBinaryTree(2);
     
-    MyQueue *myQueue = new MyQueue(10);
-    myQueue->push(20);
-    myQueue->push(30);
-    myQueue->display();
-    myQueue->pop();
-    myQueue->display();
-    myQueue->pop();
-    myQueue->display();
-    myQueue->pop();
-    myQueue->display();
+    binaryTree->rightNode = node1;
+    node1->rightNode = node2;
+    binaryTree->leftNode = node3;
+    node3->leftNode = node4;
+    node4->leftNode = node5;
     
-    delete myQueue;
+    
     return 0;
 }
-
