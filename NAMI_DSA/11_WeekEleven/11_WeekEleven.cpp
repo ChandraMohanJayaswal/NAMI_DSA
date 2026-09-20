@@ -224,7 +224,7 @@ struct MyBinaryTree {
     T data;
     MyBinaryTree *leftNode;
     MyBinaryTree *rightNode;
-    
+        
     MyBinaryTree() {
         data = -1;
         leftNode = nullptr;
@@ -235,6 +235,17 @@ struct MyBinaryTree {
         this->data = data;
         leftNode = nullptr;
         rightNode = nullptr;
+    }
+    
+    int size() {
+        int count = 1;  // count this node
+        if (leftNode != nullptr) {
+            count += leftNode->size();
+        }
+        if (rightNode != nullptr) {
+            count += rightNode->size();
+        }
+        return count;
     }
     
     void displayInOrder() {
@@ -295,6 +306,8 @@ int main() {
     cout <<endl << "Post Order: " << endl;
     binaryTree->displayPostOrder();
     
+    cout <<endl << "Size : "<< binaryTree->size() << endl;
+
     
     return 0;
 }
