@@ -118,7 +118,7 @@ struct MyQueue {
     }
     
     // ENQUEUE - add at the rear (end)
-    void push(int data) {
+    void enqueue(int data) {
         if (isEmpty) {
             this->data = data;
             isEmpty = false;
@@ -134,7 +134,7 @@ struct MyQueue {
     }
     
     // DEQUEUE - remove from the front (beginning)
-    int pop() {
+    int dequeue() {
         if (isEmpty) {
             return -1;
         }
@@ -185,39 +185,37 @@ struct MyQueue {
         return counter;
     }
 
-    ~MyQueue(){
-
-    }
+    ~MyQueue(){}
 };
 
-//int main() {
-//    MyStack *myStack = new MyStack(10);
-//    myStack->push(20);
-//    myStack->push(30);
-//    myStack->display();
-//    myStack->pop();
-//    myStack->display();
-//    myStack->pop();
-//    myStack->display();
-//    myStack->pop();
-//    myStack->display();
-//    
-//    delete myStack;
-//    
-//    MyQueue *myQueue = new MyQueue(10);
-//    myQueue->push(20);
-//    myQueue->push(30);
-//    myQueue->display();
-//    myQueue->pop();
-//    myQueue->display();
-//    myQueue->pop();
-//    myQueue->display();
-//    myQueue->pop();
-//    myQueue->display();
-//    
-//    delete myQueue;
-//    return 0;
-//}
+int main() {
+    MyStack *myStack = new MyStack(10);
+    myStack->push(20);
+    myStack->push(30);
+    myStack->display();
+    myStack->pop();
+    myStack->display();
+    myStack->pop();
+    myStack->display();
+    myStack->pop();
+    myStack->display();
+    
+    delete myStack;
+    
+    MyQueue *myQueue = new MyQueue(10);
+    myQueue->enqueue(20);
+    myQueue->enqueue(30);
+    myQueue->display();
+    myQueue->dequeue();
+    myQueue->display();
+    myQueue->dequeue();
+    myQueue->display();
+    myQueue->dequeue();
+    myQueue->display();
+    
+    delete myQueue;
+    return 0;
+}
 
 template <typename T>
 struct MyBinaryTree {
@@ -437,35 +435,38 @@ struct MyBinaryTree {
     }
 };
 
-
-int main() {
-    MyBinaryTree<int> *binaryTree = new MyBinaryTree(20);
-    
-    MyBinaryTree<int> *node18 = new MyBinaryTree(18);
-    MyBinaryTree<int> *node16 = new MyBinaryTree(16);
-    MyBinaryTree<int> *node19 = new MyBinaryTree(19);
-    MyBinaryTree<int> *node25 = new MyBinaryTree(25);
-    MyBinaryTree<int> *node23 = new MyBinaryTree(23);
-    MyBinaryTree<int> *node26 = new MyBinaryTree(26);
-
-    binaryTree->leftNode = node18;
-    node18->leftNode = node16;
-    node18->rightNode = node19;
-    binaryTree->rightNode = node25;
-    node25->leftNode = node23;
-    node25->rightNode = node26;
-    
-    cout <<endl  << "In Order: " << endl;
-    binaryTree->displayInOrder();
-    
-    cout <<endl << "Pre Order: " << endl;
-    binaryTree->displayPreOrder();
-    
-    cout <<endl << "Post Order: " << endl;
-    binaryTree->displayPostOrder();
-    
-    cout <<endl << "Size : "<< binaryTree->nodeSize() << endl;
-
-    
-    return 0;
-}
+//int main() {
+//    MyBinaryTree<int> *binaryTree = new MyBinaryTree(20);
+//    
+//    MyBinaryTree<int> *node18 = new MyBinaryTree(18);
+//    MyBinaryTree<int> *node16 = new MyBinaryTree(16);
+//    MyBinaryTree<int> *node19 = new MyBinaryTree(19);
+//    MyBinaryTree<int> *node25 = new MyBinaryTree(25);
+//    MyBinaryTree<int> *node23 = new MyBinaryTree(23);
+//    MyBinaryTree<int> *node26 = new MyBinaryTree(26);
+//
+//    binaryTree->leftNode = node18;
+//    node18->leftNode = node16;
+//    node18->rightNode = node19;
+//    binaryTree->rightNode = node25;
+//    node25->leftNode = node23;
+//    node25->rightNode = node26;
+//    
+//    cout <<endl  << "In Order Recursive: ";
+//    binaryTree->displayInOrder();
+//    cout <<endl  << "In Order Iterative: ";
+//    binaryTree->displayInOrderIterative();
+//    
+//    cout <<endl << "Pre Order Recursive: ";
+//    binaryTree->displayPreOrder();
+//    cout <<endl << "Pre Order Iterative: ";
+//    binaryTree->displayPreOrderIterative();
+//    
+//    cout <<endl << "Post Order Recursive: ";
+//    binaryTree->displayPostOrder();
+//    cout <<endl << "Post Order Iterative: ";
+//    binaryTree->displayPostOrderIterative();
+//
+//    cout <<endl << "Size : "<< binaryTree->nodeSize() << endl;
+//    return 0;
+//}
