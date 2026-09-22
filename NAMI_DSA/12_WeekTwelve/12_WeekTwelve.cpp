@@ -108,6 +108,50 @@ string infixToPostfixParenthesis(string infix) {
     return postfix;
 }
 
+
+// Apply an operator to two operands
+int applyOp(int a, int b, char op) {
+    switch (op) {
+        case '+': return a + b;
+        case '-': return a - b;
+        case '*': return a * b;
+        case '/': return a / b;   // integer division
+    }
+    return 0;
+}
+
+/**
+ 1. Scan the postfix expression from left to right.
+ 2. If the token is an operand → push it onto the stack.
+ 3. If the token is an operator:
+    Pop the top value → this is the right operand.
+    Pop the next value → this is the left operand.
+    Compute left op right and push the result back.
+ 4. At the end, the stack contains exactly one value — the answer.
+ 
+ ⚠️ Order matters for - and /. The first pop is the right operand.
+ */
+int evaluatePostfix(string postfix) {
+    stack<int> s;
+
+    for (char c : postfix) {
+        if (c == ' ') continue;   // skip spaces
+
+        if (isdigit(c)) {
+            // Operand → push onto stack
+            s.push(c - '0');
+        } else {
+            // Operator → pop two operands and apply
+            int right = s.top(); s.pop();
+            int left  = s.top(); s.pop();
+            int result = applyOp(left, right, c);
+            s.push(result);
+        }
+    }
+
+    return s.top();   // final answer
+}
+
 int main() {
 //    string expressions[] = {
 //        "A+B-C",
@@ -118,19 +162,29 @@ int main() {
 //    };
     
     string expressions[] = {
-            "A+B-C",
-            "(A+B)*C",
-            "(A+B)*(C-D)",
-            "A+((B+C)*(E-F)-G)/(H-I)",
-            "A+B*(C+D)-E/F*G+H",
-            "A / B - C + D * E - A * C"
-        };
+        "45+1-40",
+        "3+6*8-12",
+        "3*5+8/3",
+        "6+6*9-3/2",
+        "5/8-3+8*2-9*2"
+    };
+    
+//    string expressions[] = {
+//            "A+B-C",
+//            "(A+B)*C",
+//            "(A+B)*(C-D)",
+//            "A+((B+C)*(E-F)-G)/(H-I)",
+//            "A+B*(C+D)-E/F*G+H",
+//            "A / B - C + D * E - A * C"
+//        };
     
     for (string infix : expressions) {
         cout << "Infix  : " << infix << endl;
-//        cout << "Postfix: " << infixToPostfix(infix) << endl << endl;
-        cout << "Postfix: " << infixToPostfixParenthesis(infix) << endl << endl;
-
+        string postFixExression = infixToPostfix(infix);
+//        string postFixExression = infixToPostfixParenthesis(infix);
+        cout << "Postfix: " << postFixExression << endl;
+        int result = evaluatePostfix(postFixExression);
+        cout << "Result: " << result << endl << endl;
     }
     return 0;
 }
