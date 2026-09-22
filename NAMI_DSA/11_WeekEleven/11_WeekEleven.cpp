@@ -188,34 +188,34 @@ struct MyQueue {
     ~MyQueue(){}
 };
 
-int main() {
-    MyStack *myStack = new MyStack(10);
-    myStack->push(20);
-    myStack->push(30);
-    myStack->display();
-    myStack->pop();
-    myStack->display();
-    myStack->pop();
-    myStack->display();
-    myStack->pop();
-    myStack->display();
-    
-    delete myStack;
-    
-    MyQueue *myQueue = new MyQueue(10);
-    myQueue->enqueue(20);
-    myQueue->enqueue(30);
-    myQueue->display();
-    myQueue->dequeue();
-    myQueue->display();
-    myQueue->dequeue();
-    myQueue->display();
-    myQueue->dequeue();
-    myQueue->display();
-    
-    delete myQueue;
-    return 0;
-}
+//int main() {
+//    MyStack *myStack = new MyStack(10);
+//    myStack->push(20);
+//    myStack->push(30);
+//    myStack->display();
+//    myStack->pop();
+//    myStack->display();
+//    myStack->pop();
+//    myStack->display();
+//    myStack->pop();
+//    myStack->display();
+//    
+//    delete myStack;
+//    
+//    MyQueue *myQueue = new MyQueue(10);
+//    myQueue->enqueue(20);
+//    myQueue->enqueue(30);
+//    myQueue->display();
+//    myQueue->dequeue();
+//    myQueue->display();
+//    myQueue->dequeue();
+//    myQueue->display();
+//    myQueue->dequeue();
+//    myQueue->display();
+//    
+//    delete myQueue;
+//    return 0;
+//}
 
 template <typename T>
 struct MyBinaryTree {
