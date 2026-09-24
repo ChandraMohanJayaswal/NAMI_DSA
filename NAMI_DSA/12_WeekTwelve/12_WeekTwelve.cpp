@@ -21,6 +21,7 @@ bool isOperator(char c) {
 }
 
 /**
+ ALGORITHM
  1. Operand (A, B, C, ...) → append directly to the output string.
  2. Operator → pop from stack while the top has higher or equal precedence, then push the current operator.
  3. At the end → pop all remaining operators into the output.
@@ -55,11 +56,12 @@ string infixToPostfix(string infix) {
 }
 
 /**
+ ALGORITHM
  1. Operand → Append directly to postfix output
  2. ( → Push onto stack
  3. ) → Pop and append all operators until ( is encountered, then discard (
- 4. Operator → Pop and append operators with higher or equal precedence, then push current operator
- 5. At end, pop all remaining operators from stack
+ 4. Operator → Pop and append operators with higher or equal precedence till ( is encountered, then push the current operator, then push the current operator
+ 5. At the end, pop all remaining operators from the stack
  */
 string infixToPostfixParenthesis(string infix) {
     stack<char> s;
@@ -121,15 +123,16 @@ int applyOp(int a, int b, char op) {
 }
 
 /**
+ ALGORITHM
  1. Scan the postfix expression from left to right.
- 2. If the token is an operand → push it onto the stack.
- 3. If the token is an operator:
-    Pop the top value → this is the right operand.
-    Pop the next value → this is the left operand.
-    Compute left op right and push the result back.
- 4. At the end, the stack contains exactly one value — the answer.
- 
- ⚠️ Order matters for - and /. The first pop is the right operand.
+  2. If the token is an operand → push it onto the stack.
+  3. If the token is an operator:
+     Pop the top value → this is the right operand.
+     Pop the next value → this is the left operand.
+     Compute left operator right (like a + b) and push the result back.
+  4. At the end, the stack contains exactly one value — the answer.
+  
+  ⚠️ Order matters for - and /. The first pop is the right operand.
  */
 int evaluatePostfix(string postfix) {
     stack<int> s;
@@ -181,11 +184,11 @@ int main() {
     
     for (string infix : expressions) {
         cout << "Infix  : " << infix << endl;
-        string postFixExression = infixToPostfix(infix);
-//        string postFixExression = infixToPostfixParenthesis(infix);
+//        string postFixExression = infixToPostfix(infix);
+        string postFixExression = infixToPostfixParenthesis(infix);
         cout << "Postfix: " << postFixExression << endl;
-        int result = evaluatePostfix(postFixExression);
-        cout << "Result: " << result << endl << endl;
+//        int result = evaluatePostfix(postFixExression);
+//        cout << "Result: " << result << endl << endl;
     }
     return 0;
 }
