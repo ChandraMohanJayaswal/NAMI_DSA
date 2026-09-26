@@ -112,7 +112,7 @@ string infixToPostfixParenthesis(string infix) {
 
 
 // Apply an operator to two operands
-int applyOp(int a, int b, char op) {
+int applyOperator(int a, int b, char op) {
     switch (op) {
         case '+': return a + b;
         case '-': return a - b;
@@ -147,7 +147,7 @@ int evaluatePostfix(string postfix) {
             // Operator → pop two operands and apply
             int right = s.top(); s.pop();
             int left  = s.top(); s.pop();
-            int result = applyOp(left, right, c);
+            int result = applyOperator(left, right, c);
             s.push(result);
         }
     }
@@ -156,39 +156,119 @@ int evaluatePostfix(string postfix) {
 }
 
 
-int main() {
+//int main() {
+////    string expressions[] = {
+////        "A+B-C",
+////        "A+B*C-D",
+////        "A*B+C/D",
+////        "A+B*C-D/E",
+////        "A/B-C+D*E-A*C"
+////    };
+//    
 //    string expressions[] = {
-//        "A+B-C",
-//        "A+B*C-D",
-//        "A*B+C/D",
-//        "A+B*C-D/E",
-//        "A/B-C+D*E-A*C"
+//        "45+1-40",
+//        "3+6*8-12",
+//        "3*5+8/3",
+//        "6+6*9-3/2",
+//        "5/8-3+8*2-9*2"
 //    };
-    
-    string expressions[] = {
-        "45+1-40",
-        "3+6*8-12",
-        "3*5+8/3",
-        "6+6*9-3/2",
-        "5/8-3+8*2-9*2"
-    };
-    
-//    string expressions[] = {
-//            "A+B-C",
-//            "(A+B)*C",
-//            "(A+B)*(C-D)",
-//            "A+((B+C)*(E-F)-G)/(H-I)",
-//            "A+B*(C+D)-E/F*G+H",
-//            "A / B - C + D * E - A * C"
-//        };
-    
-    for (string infix : expressions) {
-        cout << "Infix  : " << infix << endl;
-//        string postFixExression = infixToPostfix(infix);
-        string postFixExression = infixToPostfixParenthesis(infix);
-        cout << "Postfix: " << postFixExression << endl;
-//        int result = evaluatePostfix(postFixExression);
-//        cout << "Result: " << result << endl << endl;
+//    
+////    string expressions[] = {
+////            "A+B-C",
+////            "(A+B)*C",
+////            "(A+B)*(C-D)",
+////            "A+((B+C)*(E-F)-G)/(H-I)",
+////            "A+B*(C+D)-E/F*G+H",
+////            "A / B - C + D * E - A * C"
+////        };
+//    
+//    for (string infix : expressions) {
+//        cout << "Infix  : " << infix << endl;
+////        string postFixExression = infixToPostfix(infix);
+//        string postFixExression = infixToPostfixParenthesis(infix);
+//        cout << "Postfix: " << postFixExression << endl;
+////        int result = evaluatePostfix(postFixExression);
+////        cout << "Result: " << result << endl << endl;
+//    }
+//    return 0;
+//}
+
+//class Graph {
+//    vector<vector<int>> adjacentMatrix;
+//    
+//public:
+//    Graph(int numberOfVertices) {
+//        adjacentMatrix = vector<vector<int>>(numberOfVertices, vector<int>(numberOfVertices,0));
+//    }
+//    
+//    void addEdge(int nodeOne, int nodeTwo){
+//        //Set edge from nodeOne to nodeTwo
+//        adjacentMatrix[nodeOne][nodeTwo] = 1;
+//        //Set edge from nodeTwo to nodeOne (for undirected graph)
+//        adjacentMatrix[nodeTwo][nodeOne] = 1;
+//    }
+//    
+//    void display(){
+//        cout << "Adjacency Matrix for the Graph: " << endl;
+//        int numberOfVertices = adjacentMatrix.size();
+//        for (int i = 0; i < numberOfVertices; i++) {
+//            for (int j = 0; j < numberOfVertices; j++) {
+//                cout << adjacentMatrix[i][j] << "  ";
+//            }
+//            cout << endl;
+//        }
+//    }
+//};
+//
+//
+//int main() {
+//    int numberOfNodes = 4;
+//    Graph *graph = new Graph(numberOfNodes);
+//    
+//    graph->addEdge(0, 1);
+//    graph->addEdge(0, 2);
+//    graph->addEdge(1, 3);
+//    graph->addEdge(2, 3);
+//    
+//    graph->display();
+//    
+//    delete graph;
+//    return 0;
+//}
+
+#include <list>
+#include <map>
+class Graph {
+    map<int,list<int>> adjacencyList;
+
+public:
+    void addEdge(int nodeOne, int nodeTwo) {
+        // Add edge from nodeOne to nodeTwo
+        adjacencyList[nodeOne].push_back(nodeTwo);
+        // Add edge from nodeTwo to nodeOne because the graph is
+        // undirected
+        adjacencyList[nodeTwo].push_back(nodeOne);
     }
+
+    void print() {
+        cout << "Adjacency list for the Graph: " << endl;
+        for (auto i : adjacencyList) {
+            cout << i.first << " -> ";
+            for (auto j : i.second) {
+                cout << j << " ";
+            }
+            cout << endl;
+        }
+    }
+};
+
+int main() {
+    Graph g;
+
+    g.addEdge(1, 0);
+    g.addEdge(2, 0);
+    g.addEdge(1, 2);
+
+    g.print();
     return 0;
 }
