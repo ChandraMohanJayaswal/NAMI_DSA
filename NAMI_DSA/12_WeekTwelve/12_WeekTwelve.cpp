@@ -201,11 +201,11 @@ int evaluatePostfix(string postfix) {
 //        adjacentMatrix = vector<vector<int>>(numberOfVertices, vector<int>(numberOfVertices,0));
 //    }
 //    
-//    void addEdge(int nodeOne, int nodeTwo){
+//    void addEdge(int nodeOne, int nodeTwo, int weight = 1){
 //        //Set edge from nodeOne to nodeTwo
-//        adjacentMatrix[nodeOne][nodeTwo] = 1;
+//        adjacentMatrix[nodeOne][nodeTwo] = weight;
 //        //Set edge from nodeTwo to nodeOne (for undirected graph)
-//        adjacentMatrix[nodeTwo][nodeOne] = 1;
+//        adjacentMatrix[nodeTwo][nodeOne] = weight;
 //    }
 //    
 //    void display(){
@@ -219,16 +219,16 @@ int evaluatePostfix(string postfix) {
 //        }
 //    }
 //};
-//
-//
+
+
 //int main() {
 //    int numberOfNodes = 4;
 //    Graph *graph = new Graph(numberOfNodes);
 //    
-//    graph->addEdge(0, 1);
-//    graph->addEdge(0, 2);
-//    graph->addEdge(1, 3);
-//    graph->addEdge(2, 3);
+//    graph->addEdge(0, 1, 4);
+//    graph->addEdge(0, 2, 3);
+//    graph->addEdge(1, 3, 5);
+//    graph->addEdge(2, 3, 1);
 //    
 //    graph->display();
 //    
@@ -262,13 +262,13 @@ public:
     }
 };
 
-int main() {
-    Graph g;
-
-    g.addEdge(1, 0);
-    g.addEdge(2, 0);
-    g.addEdge(1, 2);
-
-    g.print();
-    return 0;
-}
+//int main() {
+//    Graph g;
+//
+//    g.addEdge(1, 0);
+//    g.addEdge(2, 0);
+//    g.addEdge(1, 2);
+//
+//    g.print();
+//    return 0;
+//}
