@@ -225,10 +225,13 @@ int evaluatePostfix(string postfix) {
 //    int numberOfNodes = 4;
 //    Graph *graph = new Graph(numberOfNodes);
 //    
-//    graph->addEdge(0, 1, 4);
-//    graph->addEdge(0, 2, 3);
-//    graph->addEdge(1, 3, 5);
-//    graph->addEdge(2, 3, 1);
+//    // A = 0, B = 1, C = 2, D = 3
+//    graph->addEdge(0, 1, 2); //A->B, weighth = 2
+//    graph->addEdge(0, 3, 1);
+//    graph->addEdge(0, 2, 5);
+//    graph->addEdge(2, 2, 2);
+//    graph->addEdge(2, 3, 3);
+//    
 //    
 //    graph->display();
 //    
@@ -239,36 +242,33 @@ int evaluatePostfix(string postfix) {
 #include <list>
 #include <map>
 class Graph {
-    map<int,list<int>> adjacencyList;
-
+    map<int, list<pair<int, int>>> adjacencyList; // (neighbor node, weight) pairs
 public:
-    void addEdge(int nodeOne, int nodeTwo) {
-        // Add edge from nodeOne to nodeTwo
-        adjacencyList[nodeOne].push_back(nodeTwo);
-        // Add edge from nodeTwo to nodeOne because the graph is
-        // undirected
-        adjacencyList[nodeTwo].push_back(nodeOne);
+    void addEdge(int nodeOne, int nodeTwo, int weight) {
+        adjacencyList[nodeOne].push_back({nodeTwo, weight});
+        // Undirected: add the reverse edge too
+        adjacencyList[nodeTwo].push_back({nodeOne, weight});
     }
 
     void print() {
-        cout << "Adjacency list for the Graph: " << endl;
-        for (auto i : adjacencyList) {
+        cout << "Adjacency list for the Weighted Graph: " << endl;
+        for (auto& i : adjacencyList) {  // reference to avoid copying
             cout << i.first << " -> ";
-            for (auto j : i.second) {
-                cout << j << " ";
+            for (auto& j : i.second) {
+                cout << "(" << j.first << ", w=" << j.second << ") ";
             }
             cout << endl;
         }
     }
 };
 
-//int main() {
-//    Graph g;
-//
-//    g.addEdge(1, 0);
-//    g.addEdge(2, 0);
-//    g.addEdge(1, 2);
-//
-//    g.print();
-//    return 0;
-//}
+int main() {
+    Graph g;
+
+    g.addEdge(1, 0, 5);
+    g.addEdge(2, 0, 3);
+    g.addEdge(1, 2, 7);
+
+    g.print();
+    return 0;
+}
